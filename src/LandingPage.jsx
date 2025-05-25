@@ -271,7 +271,7 @@ export default function LandingPage() {
 <footer className="bg-gray-900 text-white text-center py-8">
   <div className="max-w-6xl mx-auto px-4">
     <p className="text-sm sm:text-base">&copy; {new Date().getFullYear()} alexkanonovich.cz</p>
-    <p className="text-sm sm:text-base mt-1 opacity-75">Oprava domácích spotřebičů po celé Praze</p>
+    <p className="text-sm sm:text-base mt-1 opacity-75">Oprava domácích spotřebičů po celé Praze a okolí</p>
   </div>
 </footer>
 
