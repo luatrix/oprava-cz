@@ -17,7 +17,7 @@ export default function LandingPage() {
           <span className="font-bold text-lg">Dokonala Oprava</span>
         </div>
         <nav className="flex items-center gap-6 text-base font-medium text-gray-700">
-          <a href="#home" className="hover:text-blue-600">Úvodní stránka</a>
+<a href="#" className="hover:text-blue-600">Úvodní stránka</a>
           <a href="#pricing" className="hover:text-blue-600">Cena</a>
           <a href="#contact" className="hover:text-blue-600">Kontakt</a>
         </nav>
@@ -35,8 +35,8 @@ export default function LandingPage() {
               SUŠIČKY<br />
               PO CELÉ PRAZE A OKOLÍ
             </h1>
-            <p className="text-gray-700 text-2xl flex items-center gap-3 mb-10 font-semibold">
-  <FaPhoneAlt className="text-blue-600 text-3xl" />
+            <p className="text-gray-700 text-3xl flex items-center gap-3 mb-10 font-semibold">
+  <FaPhoneAlt className="text-blue-600 text-4xl" />
   +420 730 520 302
 </p>
 
@@ -103,7 +103,7 @@ export default function LandingPage() {
               <h3 className="text-2xl font-bold mb-4 text-gray-900">Opravujeme rychle a s důvěrou</h3>
               <p className="mb-4">Už více než <strong>5 let</strong> pomáháme domácnostem v celé Praze obnovit funkčnost jejich praček, myček a sušiček. Rozumíme, jak důležité je mít funkční domácí spotřebiče, a proto se snažíme vyjíždět <strong>ještě tentýž den</strong>.</p>
               <p className="mb-4">Naše práce je postavena na zkušenostech, poctivosti a jasné komunikaci. Zakládáme si na tom, aby každý zákazník rozuměl, co se opravuje a proč.</p>
-              <p className="mb-4">Specializujeme se na <strong>opravu praček</strong>, <strong> myček</strong> i <strong> sušiček v Praze a okolí</strong>. Nabízíme <strong>rychlý servis domácích spotřebičů</strong> pro značky <strong>Bosch</strong>, <strong>LG</strong>, <strong>Whirlpool</strong> itd.</p>
+              <p className="mb-4">Specializujeme se na <strong>opravu praček</strong>, <strong> myček</strong> a <strong> sušiček v Praze a okolí</strong>. Nabízíme <strong>rychlý servis domácích spotřebičů</strong> pro značky <strong>Bosch</strong>, <strong>LG</strong>, <strong>Whirlpool</strong> itd.</p>
               <p>Objednejte si servis s jistotou — bez skrytých poplatků, s <strong>garancí na provedenou práci</strong> a úsměvem technika, který vám opravdu chce pomoct.</p>
             </div>
           </div>
@@ -111,6 +111,36 @@ export default function LandingPage() {
       </section>
 
 {/* Contact Section */}
+<section className="bg-white py-16 px-6" id="pricing">
+  <div className="max-w-5xl mx-auto">
+    <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 text-center mb-10">Kolik stojí oprava?</h2>
+    
+    <p className="text-center text-lg text-gray-700 mb-8">
+      Obvykle cena opravy nepřesahuje <span className="font-semibold text-blue-600">800 – 2000 Kč</span>.
+      Skutečná cena se však může lišit v závislosti na několika faktorech:
+    </p>
+
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <div className="bg-[#f4f7fa] p-6 rounded-xl shadow hover:shadow-md transition">
+        <h3 className="font-semibold text-lg text-gray-800 mb-2">1. Věk a stav zařízení</h3>
+        <p className="text-gray-600">Starší nebo opotřebované spotřebiče mohou vyžadovat dražší náhradní díly nebo složitější opravy.</p>
+      </div>
+      <div className="bg-[#f4f7fa] p-6 rounded-xl shadow hover:shadow-md transition">
+        <h3 className="font-semibold text-lg text-gray-800 mb-2">2. Běžnost problému</h3>
+        <p className="text-gray-600">Pokud je závada typická pro daný model, oprava může být levnější díky dostupným dílům a zkušenostem.</p>
+      </div>
+      <div className="bg-[#f4f7fa] p-6 rounded-xl shadow hover:shadow-md transition">
+        <h3 className="font-semibold text-lg text-gray-800 mb-2">3. Region</h3>
+        <p className="text-gray-600">Cena návštěvy technika se může mírně lišit podle lokality v Praze a okolí.</p>
+      </div>
+      <div className="bg-[#f4f7fa] p-6 rounded-xl shadow hover:shadow-md transition">
+        <h3 className="font-semibold text-lg text-gray-800 mb-2">4. Přístup k zařízení</h3>
+        <p className="text-gray-600">Obtížně přístupná místa nebo nutnost demontáže mohou zvýšit čas i náklady na opravu.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section
   id="contact"
   className="bg-gradient-to-b from-[#dbeafe] to-[#bfdbfe] py-20 px-4"
@@ -192,7 +222,6 @@ export default function LandingPage() {
           <option>pračka</option>
           <option>myčka</option>
           <option>sušička</option>
-          <option>lednice</option>
         </select>
       </div>
 
