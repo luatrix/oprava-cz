@@ -35,10 +35,11 @@ export default function LandingPage() {
               SUŠIČKY<br />
               PO CELÉ PRAZE A OKOLÍ
             </h1>
-            <p className="text-gray-700 text-lg flex items-center gap-2 mb-8">
-              <FaPhoneAlt className="text-blue-600" />
-              +420 730 520 302
-            </p>
+            <p className="text-gray-700 text-2xl flex items-center gap-3 mb-10 font-semibold">
+  <FaPhoneAlt className="text-blue-600 text-3xl" />
+  +420 730 520 302
+</p>
+
             <div className="flex flex-col sm:flex-row gap-4">
   <a
     href="#contact"
@@ -102,7 +103,7 @@ export default function LandingPage() {
               <h3 className="text-2xl font-bold mb-4 text-gray-900">Opravujeme rychle a s důvěrou</h3>
               <p className="mb-4">Už více než <strong>5 let</strong> pomáháme domácnostem v celé Praze obnovit funkčnost jejich praček, myček a sušiček. Rozumíme, jak důležité je mít funkční domácí spotřebiče, a proto se snažíme vyjíždět <strong>ještě tentýž den</strong>.</p>
               <p className="mb-4">Naše práce je postavena na zkušenostech, poctivosti a jasné komunikaci. Zakládáme si na tom, aby každý zákazník rozuměl, co se opravuje a proč.</p>
-              <p className="mb-4">Specializujeme se na <strong>opravu praček v Praze</strong>, <strong>servis myček</strong> i <strong>opravu sušiček</strong>. Nabízíme <strong>rychlý servis domácích spotřebičů</strong> i <strong>záruční servis</strong> pro značky <strong>Bosch</strong>, <strong>LG</strong> a <strong>Whirlpool</strong>.</p>
+              <p className="mb-4">Specializujeme se na <strong>opravu praček</strong>, <strong> myček</strong> i <strong> sušiček v Praze a okolí</strong>. Nabízíme <strong>rychlý servis domácích spotřebičů</strong> pro značky <strong>Bosch</strong>, <strong>LG</strong>, <strong>Whirlpool</strong> itd.</p>
               <p>Objednejte si servis s jistotou — bez skrytých poplatků, s <strong>garancí na provedenou práci</strong> a úsměvem technika, který vám opravdu chce pomoct.</p>
             </div>
           </div>
