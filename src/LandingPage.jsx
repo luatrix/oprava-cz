@@ -28,7 +28,7 @@ export default function LandingPage() {
 <div className="grid grid-cols-1 md:grid-cols-2 items-center max-w-7xl mx-auto px-6 pt-18 pb-20 gap-10">
           {/* Text block */}
           <div>
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight mb-6">
+<h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-snug sm:leading-[1.3] mb-6">
               OPRAVUJEME<br />
               PRAČKY,<br />
               MYČKY,<br />
@@ -147,9 +147,17 @@ export default function LandingPage() {
 >
 
   <div className="max-w-3xl mx-auto bg-[#f7fafc] p-10 rounded-2xl shadow-xl">
-    <h2 className="text-3xl font-bold text-gray-900 text-center mb-10">
-      Pošlete nám zprávu
-    </h2>
+    <div className="text-center mb-10">
+  <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 leading-snug">
+    Zavolejte nám nebo odešlete poptávku
+  </h2>
+  <p className="mt-4 text-lg text-gray-700 font-medium">
+    📞 <span className="text-blue-600 font-semibold">+420 730 520 302</span> &nbsp;
+    (můžete psát i na <strong>WhatsApp</strong>)
+  </p>
+</div>
+
+
 {submitted && (
   <div className="md:col-span-2 text-center text-green-700 font-semibold text-lg mb-6">
     Děkujeme! Vaše zpráva byla úspěšně odeslána.
@@ -259,7 +267,6 @@ export default function LandingPage() {
     </form>
   </div>
 </section>
-{/* Footer */}
 {/* Footer */}
 <footer className="bg-gray-900 text-white text-center py-8">
   <div className="max-w-6xl mx-auto px-4">
