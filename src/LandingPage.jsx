@@ -14,7 +14,7 @@ export default function LandingPage() {
 <header className="fixed top-0 w-full z-50 flex items-center justify-between px-6 py-4 shadow-md bg-white">
         <div className="flex items-center gap-2">
           <img src="/logo.png" alt="Logo" className="h-8 w-8" />
-          <span className="font-bold text-lg">Dokonala Oprava</span>
+          <span className="font-bold text-lg">Dokonalá Oprava</span>
         </div>
         <nav className="flex items-center gap-6 text-base font-medium text-gray-700">
 <a href="#" className="hover:text-blue-600">Úvodní stránka</a>
@@ -268,12 +268,55 @@ export default function LandingPage() {
   </div>
 </section>
 {/* Footer */}
-<footer className="bg-gray-900 text-white text-center py-8">
-  <div className="max-w-6xl mx-auto px-4">
-    <p className="text-sm sm:text-base">&copy; {new Date().getFullYear()} alexkanonovich.cz</p>
-    <p className="text-sm sm:text-base mt-1 opacity-75">Oprava domácích spotřebičů po celé Praze a okolí</p>
+<footer className="bg-gray-900 text-white py-12">
+  <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {/* Брендинг */}
+    <div>
+      <h3 className="text-xl font-semibold mb-3">Dokonalá Oprava</h3>
+      <p className="text-sm opacity-75">Oprava domácích spotřebičů po celé Praze a okolí</p>
+      <p className="text-sm mt-2 opacity-75">&copy; {new Date().getFullYear()} alexkanonovich.cz</p>
+    </div>
+
+    {/* Контакты */}
+    <div>
+      <h4 className="text-lg font-semibold mb-3">Informace</h4>
+      <p className="text-sm">
+        <strong>Telefon:</strong> <br />
+        <a href="tel:+420730520302" className="text-blue-400 hover:underline">
+          +420 730 520 302
+        </a><br />
+        <span className="text-sm">(můžete psát i na <strong>WhatsApp</strong>)</span>
+      </p>
+      <p className="mt-4 text-sm">
+        <strong>E-mail:</strong> <br />
+        <a href="mailto:info@dokonalaoprava.cz" className="text-blue-400 hover:underline">
+          info@dokonalaoprava.cz
+        </a>
+      </p>
+    </div>
+
+    {/* Адрес и график */}
+    <div>
+      <h4 className="text-lg font-semibold mb-3">Adresa a pracovní doba</h4>
+      <p className="text-sm">
+        Černokostelecká 1806/123<br />
+        100 00 Praha 10 – Strašnice
+      </p>
+      <p className="mt-2 text-sm">IČO: 19307896</p>
+
+      <p className="mt-4 text-sm">
+        <strong>Pracovní doba:</strong><br />
+        Po – Pá: 9.00 – 18.00<br />
+        So: 9.00 – 14.00
+      </p>
+      <p className="mt-2 text-sm">
+        <strong>Pro objednání opravy:</strong><br />
+        volejte kdykoliv mezi 10.00 – 22.00
+      </p>
+    </div>
   </div>
 </footer>
+
 
 
 
