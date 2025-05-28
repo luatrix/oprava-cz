@@ -289,8 +289,8 @@ export default function LandingPage() {
       </p>
       <p className="mt-4 text-sm">
         <strong>E-mail:</strong> <br />
-        <a href="mailto:info@dokonalaoprava.cz" className="text-blue-400 hover:underline">
-          info@dokonalaoprava.cz
+        <a href="mailto:dokonalaoprava@gmail.com" className="text-blue-400 hover:underline">
+          dokonalaoprava@gmail.com
         </a>
       </p>
     </div>
