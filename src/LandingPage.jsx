@@ -226,11 +226,21 @@ export default function LandingPage() {
       {/* Тип устройства */}
       <div className="md:col-span-1">
         <label className="block text-gray-700 mb-1">Typ domácího spotřebiče</label>
-        <select name = "type" className="w-full p-3 rounded-xl bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
-          <option>pračka</option>
-          <option>myčka</option>
-          <option>sušička</option>
-        </select>
+      <select
+  name="type"
+  required
+  onInvalid={(e) =>
+    e.target.setCustomValidity("Prosím, vyberte typ spotřebiče.")
+  }
+  onInput={(e) => e.target.setCustomValidity("")}
+  className="w-full p-3 rounded-xl bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+>
+  <option value="">-- Vyberte typ --</option>
+  <option value="pračka">pračka</option>
+  <option value="myčka">myčka</option>
+  <option value="sušička">sušička</option>
+</select>
+
       </div>
 
       {/* Бренд */}
