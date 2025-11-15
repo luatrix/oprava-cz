@@ -167,17 +167,37 @@ export default function LandingPage() {
 <form
   onSubmit={async (e) => {
     e.preventDefault();
-    const formData = new FormData(e.target);
-    await fetch("https://formspree.io/f/mnndkdvl", {
-      method: "POST",
-      body: formData,
-      headers: { Accept: "application/json" }
-    });
-    setSubmitted(true);
-    e.target.reset();
+
+    const form = e.target;
+    const formData = new FormData(form);
+
+    try {
+      // 1. Отправляем данные на Formspree
+      await fetch("https://formspree.io/f/mnndkdvl", {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" }
+      });
+
+      // 2. Шлём конверсию в Google Analytics с тем же именем, что у заказчика
+      if (typeof window !== "undefined" && typeof window.gtag === "function") {
+        window.gtag("event", "ads_conversion___1", {
+          event_category: "conversion",
+          event_label: "Dokonala Oprava - odeslani formulare",
+          value: 1
+        });
+      }
+
+      // 3. Показываем сообщение и очищаем форму
+      setSubmitted(true);
+      form.reset();
+    } catch (err) {
+      console.error("Chyba při odesílání formuláře:", err);
+    }
   }}
   className="grid grid-cols-1 md:grid-cols-2 gap-6"
 >
+
 
       {/* Имя */}
       <div className="md:col-span-1">
