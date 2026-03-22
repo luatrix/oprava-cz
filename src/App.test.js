@@ -1,8 +1,15 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders hero and contact text on homepage', () => {
+  window.history.pushState({}, 'Home', '/');
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+
+  expect(
+    screen.getByRole('heading', {
+      name: /Oprava praček, myček a sušiček v Praze/i
+    })
+  ).toBeInTheDocument();
+
+  expect(screen.getByText(/Zavolejte nám nebo odešlete poptávku/i)).toBeInTheDocument();
 });
