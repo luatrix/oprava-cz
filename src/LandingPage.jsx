@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaCheckCircle, FaPhoneAlt, FaQuoteLeft, FaStar } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import repairGuy from './assets/repair-man.png';
 import washingMachine from './assets/washing-machine.png';
 import SiteHeader from './components/SiteHeader';
@@ -14,10 +15,22 @@ const benefits = [
 ];
 
 const serviceKeywords = [
-  'Oprava praček Praha',
-  'Oprava myček Praha',
-  'Oprava sušiček Praha',
-  'Servis domácích spotřebičů Praha'
+  {
+    title: 'Oprava praček Praha',
+    path: '/oprava-pracek-praha'
+  },
+  {
+    title: 'Oprava myček Praha',
+    path: '/oprava-mycek-praha'
+  },
+  {
+    title: 'Oprava sušiček Praha',
+    path: '/oprava-susicek-praha'
+  },
+  {
+    title: 'Servis domácích spotřebičů Praha',
+    path: '/oprava-pracek-praha'
+  }
 ];
 
 const trustItems = [
@@ -119,9 +132,15 @@ export default function LandingPage() {
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 text-center mb-12">Služby</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {serviceKeywords.map((service) => (
-              <div key={service} className="bg-white rounded-xl p-6 shadow border border-blue-100 text-center">
+              <div key={`${service.title}-${service.path}`} className="bg-white rounded-xl p-6 shadow border border-blue-100 text-center">
                 <div className="mx-auto w-12 h-1 rounded-full bg-blue-500 mb-4" />
-                <h3 className="text-xl font-semibold text-gray-900 leading-snug">{service}</h3>
+                <h3 className="text-xl font-semibold text-gray-900 leading-snug mb-4">{service.title}</h3>
+                <Link
+                  to={service.path}
+                  className="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-700"
+                >
+                  Otevřít stránku
+                </Link>
               </div>
             ))}
           </div>
