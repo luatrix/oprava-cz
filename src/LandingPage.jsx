@@ -21,10 +21,10 @@ const serviceKeywords = [
 ];
 
 const trustItems = [
-  '✔ Rychlý příjezd',
-  '✔ Férové ceny',
-  '✔ Zkušenosti',
-  '✔ Záruka na práci'
+  'Rychlý příjezd',
+  'Férové ceny',
+  'Zkušenosti',
+  'Záruka na práci'
 ];
 
 const reviews = [
@@ -131,29 +131,34 @@ export default function LandingPage() {
       <section className="bg-white py-16 px-6" id="pricing">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 text-center mb-10">Kolik stojí oprava?</h2>
-          <p className="text-center text-lg text-gray-700 mb-8 bg-blue-50 border border-blue-100 rounded-xl p-4">
-            Cena opravy se obvykle pohybuje mezi <span className="font-semibold text-blue-600">800 – 2000 Kč.</span>
-          </p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
-            <div className="bg-[#f4f7fa] p-6 rounded-xl shadow border border-blue-100 flex items-start gap-3">
-              <FaCheckCircle className="text-blue-600 mt-1 shrink-0" />
-              <p className="text-gray-700 font-semibold">Diagnostika zdarma při opravě</p>
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 mb-8">
+            <div className="lg:col-span-2 bg-blue-600 text-white p-7 rounded-2xl shadow-lg">
+              <p className="text-sm uppercase tracking-wide text-blue-100 mb-2">Orientační cena</p>
+              <p className="text-3xl font-extrabold leading-tight">800 – 2000 Kč</p>
+              <p className="text-blue-100 mt-3">Cena opravy se obvykle pohybuje mezi 800 – 2000 Kč.</p>
             </div>
-            <div className="bg-[#f4f7fa] p-6 rounded-xl shadow border border-blue-100 flex items-start gap-3">
-              <FaCheckCircle className="text-blue-600 mt-1 shrink-0" />
-              <p className="text-gray-700 font-semibold">Výjezd po Praze zdarma</p>
+            <div className="lg:col-span-3 bg-[#f4f7fa] p-6 rounded-2xl shadow border border-blue-100">
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <FaCheckCircle className="text-blue-600 mt-1 shrink-0" />
+                  <p className="text-gray-700 font-semibold">Diagnostika zdarma při opravě</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <FaCheckCircle className="text-blue-600 mt-1 shrink-0" />
+                  <p className="text-gray-700 font-semibold">Výjezd po Praze zdarma</p>
+                </div>
+              </div>
             </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            <div className="bg-[#f4f7fa] p-6 rounded-xl shadow border border-blue-100">
+            <div className="bg-white p-6 rounded-2xl shadow border border-blue-100 text-center">
               <h3 className="font-semibold text-lg text-gray-800">stav zařízení</h3>
             </div>
-            <div className="bg-[#f4f7fa] p-6 rounded-xl shadow border border-blue-100">
+            <div className="bg-white p-6 rounded-2xl shadow border border-blue-100 text-center">
               <h3 className="font-semibold text-lg text-gray-800">typ závady</h3>
             </div>
-            <div className="bg-[#f4f7fa] p-6 rounded-xl shadow border border-blue-100">
+            <div className="bg-white p-6 rounded-2xl shadow border border-blue-100 text-center">
               <h3 className="font-semibold text-lg text-gray-800">přístup k zařízení</h3>
             </div>
           </div>
