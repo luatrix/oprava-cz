@@ -67,26 +67,29 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section className="bg-gradient-to-b from-[#f4f7fa] to-[#e9f1f9] py-16 px-6" id="offer">
+      <section className="bg-gradient-to-b from-[#f4f7fa] to-[#e9f1f9] py-20 px-6" id="offer">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 text-center mb-12">Co nabízíme</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {benefits.map((benefit) => (
-              <div key={benefit} className="bg-white rounded-xl p-6 shadow hover:shadow-md transition">
-                <p className="text-lg font-semibold text-gray-800">{benefit}</p>
+              <div
+                key={benefit}
+                className="bg-white rounded-2xl p-7 shadow border border-blue-100 hover:shadow-lg hover:-translate-y-1 transition"
+              >
+                <p className="text-lg font-semibold text-gray-800 leading-relaxed">{benefit}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-white py-16 px-6" id="about">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+      <section className="bg-white py-20 px-6" id="about">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center bg-gradient-to-br from-white to-[#f5f9ff] rounded-3xl p-6 sm:p-10 shadow-md border border-blue-100">
           <div>
             <img
               src={washingMachine}
               alt="Oprava domácích spotřebičů - pračky a sušičky"
-              className="w-full h-auto rounded-xl object-cover drop-shadow-lg"
+              className="w-full h-auto rounded-2xl object-cover drop-shadow-lg"
             />
           </div>
           <div className="text-gray-800 text-lg leading-relaxed">
@@ -101,55 +104,61 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section className="bg-[#f8fbff] py-16 px-6" id="services">
+      <section className="bg-[#f8fbff] py-20 px-6" id="services">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 text-center mb-12">Služby</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {serviceKeywords.map((service) => (
-              <div key={service} className="bg-white rounded-xl p-6 shadow text-center">
-                <h3 className="text-xl font-semibold text-gray-900">{service}</h3>
+              <div
+                key={service}
+                className="bg-white rounded-2xl p-7 shadow border border-blue-100 text-center hover:shadow-lg hover:-translate-y-1 transition"
+              >
+                <h3 className="text-xl font-semibold text-gray-900 leading-snug">{service}</h3>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-white py-16 px-6" id="pricing">
-        <div className="max-w-5xl mx-auto">
+      <section className="bg-white py-20 px-6" id="pricing">
+        <div className="max-w-5xl mx-auto bg-gradient-to-br from-[#f7fbff] to-white rounded-3xl p-6 sm:p-10 shadow-md border border-blue-100">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 text-center mb-10">Kolik stojí oprava?</h2>
-          <p className="text-center text-lg text-gray-700 mb-8">
+          <p className="text-center text-lg text-gray-700 mb-10">
             Cena opravy se obvykle pohybuje mezi <span className="font-semibold text-blue-600">800 – 2000 Kč.</span>
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
-            <div className="bg-[#f4f7fa] p-6 rounded-xl shadow">
+            <div className="bg-white p-6 rounded-2xl border border-blue-100 shadow-sm">
               <p className="text-gray-700 font-semibold">Diagnostika zdarma při opravě</p>
             </div>
-            <div className="bg-[#f4f7fa] p-6 rounded-xl shadow">
+            <div className="bg-white p-6 rounded-2xl border border-blue-100 shadow-sm">
               <p className="text-gray-700 font-semibold">Výjezd po Praze zdarma</p>
             </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            <div className="bg-[#f4f7fa] p-6 rounded-xl shadow">
-              <h3 className="font-semibold text-lg text-gray-800 mb-2">stav zařízení</h3>
+            <div className="bg-white p-6 rounded-2xl border border-blue-100 shadow-sm">
+              <h3 className="font-semibold text-lg text-gray-800">stav zařízení</h3>
             </div>
-            <div className="bg-[#f4f7fa] p-6 rounded-xl shadow">
-              <h3 className="font-semibold text-lg text-gray-800 mb-2">typ závady</h3>
+            <div className="bg-white p-6 rounded-2xl border border-blue-100 shadow-sm">
+              <h3 className="font-semibold text-lg text-gray-800">typ závady</h3>
             </div>
-            <div className="bg-[#f4f7fa] p-6 rounded-xl shadow">
-              <h3 className="font-semibold text-lg text-gray-800 mb-2">přístup k zařízení</h3>
+            <div className="bg-white p-6 rounded-2xl border border-blue-100 shadow-sm">
+              <h3 className="font-semibold text-lg text-gray-800">přístup k zařízení</h3>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-[#f8fbff] py-16 px-6" id="trust">
+      <section className="bg-[#f8fbff] py-20 px-6" id="trust">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 text-center mb-10">Proč právě my</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {trustItems.map((item) => (
-              <div key={item} className="bg-white rounded-xl p-6 shadow">
+              <div
+                key={item}
+                className="bg-white rounded-2xl p-6 shadow border border-blue-100 hover:shadow-md hover:-translate-y-1 transition"
+              >
                 <p className="text-lg font-semibold text-gray-800">{item}</p>
               </div>
             ))}
@@ -157,14 +166,14 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section className="bg-white py-16 px-6" id="reviews">
+      <section className="bg-white py-20 px-6" id="reviews">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 text-center mb-10">Reference</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <blockquote className="bg-[#f4f7fa] p-6 rounded-xl shadow text-gray-700">
+            <blockquote className="bg-gradient-to-b from-white to-[#f4f9ff] p-7 rounded-2xl shadow border border-blue-100 text-gray-700 leading-relaxed">
               Petr, Praha: Skvělý servis, přijeli ještě ten den.
             </blockquote>
-            <blockquote className="bg-[#f4f7fa] p-6 rounded-xl shadow text-gray-700">
+            <blockquote className="bg-gradient-to-b from-white to-[#f4f9ff] p-7 rounded-2xl shadow border border-blue-100 text-gray-700 leading-relaxed">
               Jana, Praha: Oprava rychlá a bez problémů.
             </blockquote>
           </div>
