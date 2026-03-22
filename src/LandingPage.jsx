@@ -14,22 +14,33 @@ const benefits = [
   '🏠 Opravy u vás doma – bez nutnosti odvozu'
 ];
 
-const serviceKeywords = [
+const serviceDetails = [
   {
     title: 'Oprava praček Praha',
+    subtitle: 'Oprava praček v Praze a okolí – rychlá a spolehlivá služba',
+    textOne: 'U nás provádíme opravy praček všech značek přímo u vás doma.',
+    textTwo: 'Ve většině případů je spotřebič opraven ještě tentýž den.',
+    textThree: 'Výjezd po Praze je vždy zdarma a diagnostika není účtována, pokud opravu provedeme.',
+    cta: 'Zavolejte a domluvte si rychlý termín ještě dnes!',
     path: '/oprava-pracek-praha'
   },
   {
     title: 'Oprava myček Praha',
+    subtitle: 'Oprava myček nádobí v Praze a okolí – rychlý a spolehlivý servis',
+    textOne: 'U nás provádíme servis myček všech značek a opravíme poruchu přímo u vás doma.',
+    textTwo: 'Výjezd zdarma po celé Praze a žádné skryté poplatky.',
+    textThree: '',
+    cta: 'Objednejte si servis a my se postaráme, aby vaše myčka fungovala co nejdříve.',
     path: '/oprava-mycek-praha'
   },
   {
     title: 'Oprava sušiček Praha',
+    subtitle: 'Oprava sušiček v Praze a okolí – profesionální tým',
+    textOne: 'U nás zajistíme rychlou a spolehlivou opravu sušiček přímo u vás doma.',
+    textTwo: 'Férové ceny, zkušenosti z více než 5 let a výjezd po Praze vždy zdarma.',
+    textThree: '',
+    cta: 'Zavolejte ještě dnes a nechte nás vyřešit problém rychle a bez starostí.',
     path: '/oprava-susicek-praha'
-  },
-  {
-    title: 'Servis domácích spotřebičů Praha',
-    path: '/oprava-pracek-praha'
   }
 ];
 
@@ -75,12 +86,12 @@ export default function LandingPage() {
               +420 730 520 302
             </p>
 
-            <a
-              href="#contact"
+            <Link
+              to="/#contact"
               className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl text-lg font-semibold shadow transition"
             >
               Objednat opravu
-            </a>
+            </Link>
           </div>
 
           <div className="relative">
@@ -130,18 +141,23 @@ export default function LandingPage() {
       <section className="bg-[#f8fbff] py-16 px-6" id="services">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 text-center mb-12">Služby</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {serviceKeywords.map((service) => (
-              <div key={`${service.title}-${service.path}`} className="bg-white rounded-xl p-6 shadow border border-blue-100 text-center">
-                <div className="mx-auto w-12 h-1 rounded-full bg-blue-500 mb-4" />
-                <h3 className="text-xl font-semibold text-gray-900 leading-snug mb-4">{service.title}</h3>
+          <p className="text-center text-gray-600 mb-10">servis spotřebičů Praha</p>
+          <div className="grid grid-cols-1 gap-6">
+            {serviceDetails.map((service) => (
+              <article key={`${service.title}-${service.path}`} className="bg-white rounded-xl p-7 shadow border border-blue-100">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">{service.title}</h3>
+                <p className="text-lg font-semibold text-gray-800 mb-4">{service.subtitle}</p>
+                <p className="text-gray-700 mb-2">{service.textOne}</p>
+                <p className="text-gray-700 mb-2">{service.textTwo}</p>
+                {service.textThree ? <p className="text-gray-700 mb-2">{service.textThree}</p> : null}
+                <p className="text-gray-700 mb-4">📞 {service.cta}</p>
                 <Link
                   to={service.path}
                   className="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-700"
                 >
                   Otevřít stránku
                 </Link>
-              </div>
+              </article>
             ))}
           </div>
         </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaPhoneAlt } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import SiteHeader from '../components/SiteHeader';
 import ContactSection from '../components/ContactSection';
 import SiteFooter from '../components/SiteFooter';
@@ -16,13 +17,13 @@ export default function SeoServicePage({ title, lead, paragraphOne, paragraphTwo
           <p className="text-lg text-gray-700 mb-4">{paragraphOne}</p>
           <p className="text-lg text-gray-700 mb-8">{paragraphTwo}</p>
 
-          <a
-            href="/#contact"
+          <Link
+            to="/#contact"
             className="inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl text-lg font-semibold shadow transition"
           >
             <FaPhoneAlt />
             Zavolejte: +420 730 520 302
-          </a>
+          </Link>
         </section>
       </main>
 

@@ -13,8 +13,8 @@ export default function SiteHeader() {
         <Link to="/oprava-pracek-praha" className="hover:text-blue-600">Pračky</Link>
         <Link to="/oprava-mycek-praha" className="hover:text-blue-600">Myčky</Link>
         <Link to="/oprava-susicek-praha" className="hover:text-blue-600">Sušičky</Link>
-        <a href="/#pricing" className="hover:text-blue-600">Cena</a>
-        <a href="/#contact" className="hover:text-blue-600">Kontakt</a>
+        <Link to="/#pricing" className="hover:text-blue-600">Cena</Link>
+        <Link to="/#contact" className="hover:text-blue-600">Kontakt</Link>
       </nav>
     </header>
   );

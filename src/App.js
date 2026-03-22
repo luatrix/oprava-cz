@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter, Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import LandingPage from './LandingPage';
 import SeoServicePage from './pages/SeoServicePage';
 
@@ -24,9 +24,34 @@ const seoPages = {
   }
 };
 
+function ScrollManager() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (!location.hash) {
+      try {
+        window.scrollTo(0, 0);
+      } catch (e) {
+        // jsdom in tests does not implement scrollTo
+      }
+      return;
+    }
+
+    const id = location.hash.replace('#', '');
+    const target = document.getElementById(id);
+
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, [location.pathname, location.hash]);
+
+  return null;
+}
+
 function App() {
   return (
     <BrowserRouter>
+      <ScrollManager />
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/oprava-pracek-praha" element={<SeoServicePage {...seoPages['/oprava-pracek-praha']} />} />
