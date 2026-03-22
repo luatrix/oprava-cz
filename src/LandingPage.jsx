@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaPhoneAlt, FaQuoteLeft } from 'react-icons/fa';
+import { FaCheckCircle, FaPhoneAlt, FaQuoteLeft, FaTools } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import repairGuy from './assets/repair-man.png';
 import washingMachine from './assets/washing-machine.png';
@@ -71,9 +71,18 @@ export default function LandingPage() {
             <p className="text-gray-700 mb-6">Volejte nebo napište na WhatsApp — odpovídáme rychle</p>
 
             <div className="space-y-2 mb-8 text-gray-800 font-medium">
-              <p>✔ Více než 5 let zkušeností</p>
-              <p>✔ Férové ceny bez skrytých poplatků</p>
-              <p>✔ Opravy všech značek domácích spotřebičů</p>
+              <p className="flex items-center gap-2">
+                <FaCheckCircle className="text-blue-600 shrink-0" />
+                <span>Více než 5 let zkušeností</span>
+              </p>
+              <p className="flex items-center gap-2">
+                <FaCheckCircle className="text-blue-600 shrink-0" />
+                <span>Férové ceny bez skrytých poplatků</span>
+              </p>
+              <p className="flex items-center gap-2">
+                <FaCheckCircle className="text-blue-600 shrink-0" />
+                <span>Opravy všech značek domácích spotřebičů</span>
+              </p>
             </div>
 
             <Link
@@ -105,18 +114,24 @@ export default function LandingPage() {
               <article key={item.title} className="bg-white rounded-2xl p-7 shadow border border-blue-100">
                 <div className="flex items-start justify-between gap-6 mb-5">
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">🔹 {item.title}</h3>
-                    <p className="text-lg font-semibold text-gray-800">{item.subtitle}</p>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2 inline-flex items-center gap-2">
+                  <FaTools className="text-blue-600" />
+                  {item.title}
+                </h3>
+                <p className="text-lg font-semibold text-gray-800">{item.subtitle}</p>
                   </div>
-                  <div className="hidden sm:block w-14 h-14 rounded-xl bg-blue-50 border border-blue-100" />
+                  <div className="hidden sm:flex w-14 h-14 rounded-xl bg-blue-50 border border-blue-100 items-center justify-center">
+                    <FaTools className="text-blue-600 text-xl" />
+                  </div>
                 </div>
-                <div className="space-y-3">
+                <ul className="space-y-3">
                   {item.lines.map((line) => (
-                    <p key={`${item.title}-${line}`} className="text-gray-700 bg-gray-50 border border-gray-100 rounded-lg px-4 py-3">
-                      {line}
-                    </p>
+                    <li key={`${item.title}-${line}`} className="text-gray-700 flex items-start gap-3">
+                      <FaCheckCircle className="text-blue-600 mt-1 shrink-0" />
+                      <span>{line}</span>
+                    </li>
                   ))}
-                </div>
+                </ul>
                 <Link to={item.path} className="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-700 mt-5">
                   Otevřít stránku
                 </Link>
