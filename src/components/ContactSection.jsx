@@ -6,15 +6,15 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="bg-gradient-to-b from-[#dbeafe] to-[#bfdbfe] py-20 px-4"
+      className="py-20 px-4 sm:px-6 bg-gradient-to-b from-[#d9eaff] via-[#e9f3ff] to-[#f7fbff]"
     >
-      <div className="max-w-3xl mx-auto bg-[#f7fafc] p-10 rounded-2xl shadow-xl">
+      <div className="max-w-4xl mx-auto glass-panel rounded-3xl p-7 sm:p-10">
         <div className="text-center mb-10">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 leading-snug">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#0f2237] leading-tight">
             Zavolejte nám nebo odešlete poptávku
           </h2>
-          <p className="mt-4 text-lg text-gray-700 font-medium">
-            📞 <span className="text-blue-600 font-semibold">+420 730 520 302</span> &nbsp;
+          <p className="mt-4 text-lg text-[#35506e] font-medium">
+            📞 <span className="text-[#1d67c2] font-semibold">+420 730 520 302</span> &nbsp;
             (můžete psát i na <strong>WhatsApp</strong>)
           </p>
         </div>
@@ -56,53 +56,53 @@ export default function ContactSection() {
           className="grid grid-cols-1 md:grid-cols-2 gap-6"
         >
           <div className="md:col-span-1">
-            <label className="block text-gray-700 mb-1">Jméno</label>
+            <label className="block text-[#35506e] mb-1 font-semibold">Jméno</label>
             <input
               name="name"
               type="text"
               placeholder="vaše jméno"
-              className="w-full p-3 rounded-xl bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 rounded-xl border border-[#bfd4ee] bg-white focus:outline-none focus:ring-2 focus:ring-[#1d67c2]"
             />
           </div>
 
           <div className="md:col-span-1">
-            <label className="block text-gray-700 mb-1">Telefon</label>
+            <label className="block text-[#35506e] mb-1 font-semibold">Telefon</label>
             <input
               name="phone"
               type="text"
               placeholder="Váš telefon"
-              className="w-full p-3 rounded-xl bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 rounded-xl border border-[#bfd4ee] bg-white focus:outline-none focus:ring-2 focus:ring-[#1d67c2]"
             />
           </div>
 
           <div className="md:col-span-1">
-            <label className="block text-gray-700 mb-1">Email</label>
+            <label className="block text-[#35506e] mb-1 font-semibold">Email</label>
             <input
               name="email"
               type="email"
               placeholder="@"
-              className="w-full p-3 rounded-xl bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 rounded-xl border border-[#bfd4ee] bg-white focus:outline-none focus:ring-2 focus:ring-[#1d67c2]"
             />
           </div>
 
           <div className="md:col-span-1">
-            <label className="block text-gray-700 mb-1">Adresa</label>
+            <label className="block text-[#35506e] mb-1 font-semibold">Adresa</label>
             <input
               name="Address"
               type="text"
               placeholder="Ulice, město"
-              className="w-full p-3 rounded-xl bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 rounded-xl border border-[#bfd4ee] bg-white focus:outline-none focus:ring-2 focus:ring-[#1d67c2]"
             />
           </div>
 
           <div className="md:col-span-1">
-            <label className="block text-gray-700 mb-1">Typ domácího spotřebiče</label>
+            <label className="block text-[#35506e] mb-1 font-semibold">Typ domácího spotřebiče</label>
             <select
               name="type"
               required
               onInvalid={(e) => e.target.setCustomValidity('Prosím, vyberte typ spotřebiče.')}
               onInput={(e) => e.target.setCustomValidity('')}
-              className="w-full p-3 rounded-xl bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 rounded-xl border border-[#bfd4ee] bg-white focus:outline-none focus:ring-2 focus:ring-[#1d67c2]"
             >
               <option value="">-- Vyberte typ --</option>
               <option value="pračka">pračka</option>
@@ -112,29 +112,29 @@ export default function ContactSection() {
           </div>
 
           <div className="md:col-span-1">
-            <label className="block text-gray-700 mb-1">Značka</label>
+            <label className="block text-[#35506e] mb-1 font-semibold">Značka</label>
             <input
               name="brand"
               type="text"
               placeholder="např. Bosch, LG..."
-              className="w-full p-3 rounded-xl bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 rounded-xl border border-[#bfd4ee] bg-white focus:outline-none focus:ring-2 focus:ring-[#1d67c2]"
             />
           </div>
 
           <div className="md:col-span-2">
-            <label className="block text-gray-700 mb-1">Popis problému</label>
+            <label className="block text-[#35506e] mb-1 font-semibold">Popis problému</label>
             <textarea
               name="Problem description"
               rows={4}
               placeholder="popis problému"
-              className="w-full p-3 rounded-xl bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 rounded-xl border border-[#bfd4ee] bg-white focus:outline-none focus:ring-2 focus:ring-[#1d67c2]"
             />
           </div>
 
           <div className="md:col-span-2 text-center mt-4">
             <button
               type="submit"
-              className="bg-blue-600 hover:bg-blue-700 text-white font-bold text-lg py-3 px-8 rounded-xl shadow transition"
+              className="bg-[#1d67c2] hover:bg-[#134d95] text-white font-bold text-lg py-3 px-8 rounded-2xl shadow-lg shadow-[#1d67c2]/25 transition"
             >
               Objednat opravu ještě dnes
             </button>
