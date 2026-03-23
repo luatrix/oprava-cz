@@ -57,18 +57,18 @@ export default function LandingPage() {
     <div className="min-h-screen font-sans bg-gradient-to-br from-white to-[#f9fbfd]">
       <SiteHeader />
 
-      <section className="relative overflow-hidden min-h-screen pt-28">
-        <div className="grid grid-cols-1 md:grid-cols-2 items-center max-w-7xl mx-auto px-6 pt-16 pb-20 gap-10">
+      <section className="relative overflow-hidden min-h-screen pt-20 sm:pt-28">
+        <div className="grid grid-cols-1 md:grid-cols-2 items-center max-w-7xl mx-auto px-6 pt-8 sm:pt-16 pb-20 gap-10">
           <div>
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-snug sm:leading-[1.2] mb-6">
+            <h1 className="text-5xl sm:text-6xl font-extrabold text-gray-900 leading-[1.05] tracking-tight mb-5">
               Oprava praček, myček a sušiček v Praze
             </h1>
-            <p className="text-xl text-gray-700 mb-4">Přijedeme ještě dnes • Rychlá oprava přímo u vás doma</p>
-            <p className="text-gray-700 text-3xl flex items-center gap-3 mb-3 font-semibold">
+            <p className="text-lg sm:text-xl text-gray-700 mb-4">Přijedeme ještě dnes • Rychlá oprava přímo u vás doma</p>
+            <p className="text-gray-700 text-2xl sm:text-3xl flex items-center gap-3 mb-3 font-semibold">
               <FaPhoneAlt className="text-blue-600 text-4xl" />
               +420 730 520 302
             </p>
-            <p className="text-gray-700 mb-6">Volejte nebo napište na WhatsApp — odpovídáme rychle</p>
+            <p className="text-gray-700 mb-5">Volejte nebo napište na WhatsApp — odpovídáme rychle</p>
 
             <div className="space-y-2 mb-8 text-gray-800 font-medium">
               <p className="flex items-center gap-2">
@@ -111,14 +111,18 @@ export default function LandingPage() {
           </p>
           <div className="grid grid-cols-1 gap-6">
             {offerItems.map((item) => (
-              <article key={item.title} className="bg-white rounded-2xl p-7 shadow border border-blue-100">
+              <Link
+                key={item.title}
+                to={item.path}
+                className="block bg-white rounded-2xl p-7 shadow border border-blue-100 hover:shadow-lg hover:border-blue-300 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+              >
                 <div className="flex items-start justify-between gap-6 mb-5">
                   <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2 inline-flex items-center gap-2">
-                  <FaTools className="text-blue-600" />
-                  {item.title}
-                </h3>
-                <p className="text-lg font-semibold text-gray-800">{item.subtitle}</p>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2 inline-flex items-center gap-2">
+                      <FaTools className="text-blue-600" />
+                      {item.title}
+                    </h3>
+                    <p className="text-lg font-semibold text-gray-800">{item.subtitle}</p>
                   </div>
                   <div className="hidden sm:flex w-14 h-14 rounded-xl bg-blue-50 border border-blue-100 items-center justify-center">
                     <FaTools className="text-blue-600 text-xl" />
@@ -132,10 +136,10 @@ export default function LandingPage() {
                     </li>
                   ))}
                 </ul>
-                <Link to={item.path} className="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-700 mt-5">
+                <span className="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-700 mt-5">
                   Otevřít stránku
-                </Link>
-              </article>
+                </span>
+              </Link>
             ))}
           </div>
         </div>
@@ -196,14 +200,18 @@ export default function LandingPage() {
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 text-center mb-10">Kolik obvykle stojí oprava?</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div className="bg-blue-600 p-6 rounded-xl shadow text-white">
+              <p className="text-sm uppercase text-blue-100 mb-2">Výjezd</p>
+              <p className="text-3xl font-extrabold">po Praze vždy zdarma</p>
+            </div>
             <div className="bg-white p-6 rounded-xl shadow border border-blue-100">
               <p className="text-sm uppercase text-gray-500 mb-2">Diagnostika</p>
               <p className="text-3xl font-extrabold text-gray-900">od 500 Kč</p>
             </div>
-            <div className="bg-blue-600 p-6 rounded-xl shadow text-white">
-              <p className="text-sm uppercase text-blue-100 mb-2">Běžná oprava</p>
-              <p className="text-3xl font-extrabold">800 – 2000 Kč</p>
-            </div>
+          </div>
+          <div className="bg-white p-6 rounded-xl shadow border border-blue-100 mb-6 text-center">
+            <p className="text-sm uppercase text-gray-500 mb-2">Běžná oprava</p>
+            <p className="text-2xl font-bold text-gray-800">800 – 2000 Kč</p>
           </div>
           <div className="bg-[#f4f7fa] p-7 rounded-xl shadow border border-blue-100 text-gray-700">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">

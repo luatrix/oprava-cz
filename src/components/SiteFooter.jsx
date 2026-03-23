@@ -47,7 +47,7 @@ export default function SiteFooter() {
           <p className="mt-2 text-sm">
             <strong>Pro objednání opravy:</strong>
             <br />
-            volejte kdykoliv mezi 10.00 – 22.00
+            volejte kdykoliv mezi 7.00 – 22.00
           </p>
         </div>
       </div>
