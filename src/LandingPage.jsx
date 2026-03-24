@@ -57,29 +57,29 @@ export default function LandingPage() {
     <div className="min-h-screen font-sans bg-gradient-to-br from-white to-[#f9fbfd]">
       <SiteHeader />
 
-      <section className="relative overflow-hidden min-h-screen pt-20 sm:pt-28">
-        <div className="grid grid-cols-1 md:grid-cols-2 items-center max-w-7xl mx-auto px-6 pt-8 sm:pt-16 pb-20 gap-10">
+      <section className="relative overflow-hidden min-h-screen pt-16 sm:pt-28">
+        <div className="grid grid-cols-1 md:grid-cols-2 items-center max-w-7xl mx-auto px-5 sm:px-6 pt-6 sm:pt-16 pb-16 sm:pb-20 gap-8 sm:gap-10">
           <div>
-            <h1 className="text-5xl sm:text-6xl font-extrabold text-gray-900 leading-[1.05] tracking-tight mb-5">
+            <h1 className="text-[clamp(1.9rem,8vw,2.7rem)] sm:text-6xl font-extrabold text-gray-900 leading-[1.08] tracking-tight mb-4 sm:mb-5">
               Oprava praček, myček a sušiček v Praze
             </h1>
-            <p className="text-lg sm:text-xl text-gray-700 mb-4">Přijedeme ještě dnes • Rychlá oprava přímo u vás doma</p>
-            <p className="text-gray-700 text-2xl sm:text-3xl flex items-center gap-3 mb-3 font-semibold">
-              <FaPhoneAlt className="text-blue-600 text-4xl" />
+            <p className="text-base sm:text-xl text-gray-700 mb-3 sm:mb-4">Přijedeme ještě dnes • Rychlá oprava přímo u vás doma</p>
+            <p className="text-gray-700 text-xl sm:text-3xl flex items-center gap-3 mb-3 font-semibold">
+              <FaPhoneAlt className="text-blue-600 text-2xl sm:text-4xl shrink-0" />
               +420 730 520 302
             </p>
-            <p className="text-gray-700 mb-5">Volejte nebo napište na WhatsApp — odpovídáme rychle</p>
+            <p className="text-gray-700 text-sm sm:text-base mb-4 sm:mb-5">Volejte nebo napište na WhatsApp — odpovídáme rychle</p>
 
-            <div className="space-y-2 mb-8 text-gray-800 font-medium">
-              <p className="flex items-center gap-2">
+            <div className="space-y-2 mb-7 sm:mb-8 text-gray-800 font-medium text-sm sm:text-base">
+              <p className="flex items-start gap-2">
                 <FaCheckCircle className="text-blue-600 shrink-0" />
                 <span>Více než 5 let zkušeností</span>
               </p>
-              <p className="flex items-center gap-2">
+              <p className="flex items-start gap-2">
                 <FaCheckCircle className="text-blue-600 shrink-0" />
                 <span>Férové ceny bez skrytých poplatků</span>
               </p>
-              <p className="flex items-center gap-2">
+              <p className="flex items-start gap-2">
                 <FaCheckCircle className="text-blue-600 shrink-0" />
                 <span>Opravy všech značek domácích spotřebičů</span>
               </p>
@@ -87,7 +87,7 @@ export default function LandingPage() {
 
             <Link
               to="/#contact"
-              className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl text-lg font-semibold shadow transition"
+              className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-base sm:text-lg font-semibold shadow transition"
             >
               Objednat opravu
             </Link>
@@ -105,7 +105,7 @@ export default function LandingPage() {
 
       <section className="bg-gradient-to-b from-[#f4f7fa] to-[#e9f1f9] py-16 px-6" id="offer">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 text-center mb-12">Co nabízíme</h2>
+          <h2 className="text-2xl sm:text-4xl font-bold text-gray-900 text-center mb-10 sm:mb-12">Co nabízíme</h2>
           <p className="text-center text-gray-600 mb-8 max-w-3xl mx-auto">
             Detailní přehled služeb pro hlavní kategorie oprav v Praze a okolí.
           </p>
@@ -118,11 +118,11 @@ export default function LandingPage() {
               >
                 <div className="flex items-start justify-between gap-6 mb-5">
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2 inline-flex items-center gap-2">
+                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 inline-flex items-center gap-2">
                       <FaTools className="text-blue-600" />
                       {item.title}
                     </h3>
-                    <p className="text-lg font-semibold text-gray-800">{item.subtitle}</p>
+                    <p className="text-base sm:text-lg font-semibold text-gray-800">{item.subtitle}</p>
                   </div>
                   <div className="hidden sm:flex w-14 h-14 rounded-xl bg-blue-50 border border-blue-100 items-center justify-center">
                     <FaTools className="text-blue-600 text-xl" />
@@ -155,7 +155,7 @@ export default function LandingPage() {
             />
           </div>
           <div className="text-gray-800 text-lg leading-relaxed">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">O nás</h2>
+          <h2 className="text-2xl sm:text-4xl font-bold text-gray-900 mb-6">O nás</h2>
             <div className="space-y-3 mb-5">
               <p className="bg-gray-50 border border-gray-100 rounded-lg px-4 py-3">
                 U nás pomáháme domácnostem v Praze rychle obnovit funkčnost jejich spotřebičů.
@@ -175,38 +175,29 @@ export default function LandingPage() {
       </section>
 
       <section className="bg-[#f8fbff] py-16 px-6" id="services">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 text-center mb-12">Služby</h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div className="bg-white rounded-xl p-7 shadow border border-blue-100">
-              <p className="text-gray-800 mb-4 font-semibold">Co u nás opravujeme:</p>
-              <div className="space-y-3">
-                <p className="bg-gray-50 border border-gray-100 rounded-lg px-4 py-3 text-gray-700">Pračky</p>
-                <p className="bg-gray-50 border border-gray-100 rounded-lg px-4 py-3 text-gray-700">Myčky nádobí</p>
-                <p className="bg-gray-50 border border-gray-100 rounded-lg px-4 py-3 text-gray-700">Sušičky</p>
-              </div>
-            </div>
-            <div className="bg-white rounded-xl p-7 shadow border border-blue-100">
-              <p className="text-gray-700 mb-4">👉 Servis všech značek: Bosch, LG, Whirlpool, Samsung a další</p>
-              <div className="inline-flex items-center rounded-full bg-blue-50 border border-blue-100 text-blue-700 px-4 py-2 font-semibold">
-                servis spotřebičů Praha
-              </div>
-            </div>
-          </div>
+        <div className="max-w-4xl mx-auto bg-white rounded-xl p-8 shadow border border-blue-100 text-center">
+          <h2 className="text-2xl sm:text-4xl font-bold text-gray-900 mb-4">Objednat opravu</h2>
+          <p className="text-gray-700 mb-6">Zavolejte nám nebo odešlete poptávku a my se vám ozveme co nejdříve.</p>
+          <Link
+            to="/#contact"
+            className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl text-lg font-semibold shadow transition"
+          >
+            Objednat opravu
+          </Link>
         </div>
       </section>
 
       <section className="bg-white py-16 px-6" id="pricing">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 text-center mb-10">Kolik obvykle stojí oprava?</h2>
+          <h2 className="text-2xl sm:text-4xl font-bold text-gray-900 text-center mb-10">Kolik obvykle stojí oprava?</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             <div className="bg-blue-600 p-6 rounded-xl shadow text-white">
               <p className="text-sm uppercase text-blue-100 mb-2">Výjezd</p>
-              <p className="text-3xl font-extrabold">po Praze vždy zdarma</p>
+              <p className="text-2xl sm:text-3xl font-extrabold">po Praze vždy zdarma</p>
             </div>
             <div className="bg-white p-6 rounded-xl shadow border border-blue-100">
               <p className="text-sm uppercase text-gray-500 mb-2">Diagnostika</p>
-              <p className="text-3xl font-extrabold text-gray-900">od 500 Kč</p>
+              <p className="text-2xl sm:text-3xl font-extrabold text-gray-900">od 500 Kč</p>
             </div>
           </div>
           <div className="bg-white p-6 rounded-xl shadow border border-blue-100 mb-6 text-center">
@@ -226,7 +217,7 @@ export default function LandingPage() {
 
       <section className="bg-white py-16 px-6" id="reviews">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 text-center mb-4">Reference / Důvěra</h2>
+          <h2 className="text-2xl sm:text-4xl font-bold text-gray-900 text-center mb-4">Reference / Důvěra</h2>
           <p className="text-center text-gray-600 mb-10">Co o nás říkají zákazníci:</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {reviews.map((review) => (
@@ -242,7 +233,7 @@ export default function LandingPage() {
 
       <section className="bg-[#f8fbff] py-16 px-6" id="cta">
         <div className="max-w-4xl mx-auto bg-white rounded-xl p-7 shadow border border-blue-100 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Máte poruchu? Nečekejte.</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Máte poruchu? Nečekejte.</h2>
           <p className="text-gray-700 mb-2">📞 Zavolejte: +420 730 520 302</p>
           <p className="text-gray-700 mb-4">👉 nebo napište na WhatsApp</p>
           <p className="text-gray-700">U nás se postaráme, aby vaše zařízení bylo funkční co nejrychleji.</p>
