@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { FaPhoneAlt, FaTimes } from 'react-icons/fa';
+import { FaCheckCircle, FaPhoneAlt, FaTimes } from 'react-icons/fa';
 import SiteHeader from '../components/SiteHeader';
 import ContactSection from '../components/ContactSection';
 import SiteFooter from '../components/SiteFooter';
 import RepairRequestForm from '../components/RepairRequestForm';
 
-export default function SeoServicePage({ title, lead, paragraphOne, paragraphTwo }) {
+export default function SeoServicePage({ title, lead, paragraphOne, paragraphTwo, details = [] }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
@@ -32,11 +32,22 @@ export default function SeoServicePage({ title, lead, paragraphOne, paragraphTwo
       <SiteHeader />
 
       <main className="pt-32 pb-16 px-6">
-        <section className="max-w-4xl mx-auto bg-white rounded-2xl p-8 shadow">
+        <section className="max-w-5xl mx-auto bg-white rounded-2xl p-8 shadow">
           <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-6">{title}</h1>
           <p className="text-lg text-gray-700 mb-4">{lead}</p>
           <p className="text-lg text-gray-700 mb-4">{paragraphOne}</p>
-          <p className="text-lg text-gray-700 mb-8">{paragraphTwo}</p>
+          <p className="text-lg text-gray-700 mb-6">{paragraphTwo}</p>
+
+          {details.length > 0 && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+              {details.map((item) => (
+                <div key={item} className="rounded-xl border border-blue-100 bg-[#f8fbff] px-4 py-3 text-gray-700 flex items-start gap-3">
+                  <FaCheckCircle className="text-blue-600 mt-1 shrink-0" />
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+          )}
 
           <button
             type="button"
