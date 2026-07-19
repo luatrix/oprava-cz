@@ -6,14 +6,7 @@
 const { spawn } = require('child_process');
 const fs = require('fs');
 const path = require('path');
-// Prefer full puppeteer (bundled Chromium — works on CI/Vercel); fall back to
-// puppeteer-core (uses the system Chrome found below).
-let puppeteer;
-try {
-  puppeteer = require('puppeteer');
-} catch (e) {
-  puppeteer = require('puppeteer-core');
-}
+const puppeteer = require('puppeteer-core');
 
 const ROOT = path.join(__dirname, '..');
 const BUILD = path.join(ROOT, 'build');
@@ -51,22 +44,24 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
     console.error('[prerender] build/index.html missing — run build first.');
     process.exit(1);
   }
-  // System Chrome if present (fast, local dev); otherwise let full puppeteer
-  // use its bundled Chromium (CI / Vercel).
-  let executablePath = findChrome();
-  if (!executablePath && typeof puppeteer.executablePath === 'function') {
-    try {
-      const bundled = puppeteer.executablePath();
-      if (bundled && fs.existsSync(bundled)) executablePath = bundled;
-    } catch (e) {
-      /* no bundled browser */
-    }
+  // Local dev/CI-with-Chrome: use system Chrome (fast). Serverless build
+  // containers (Vercel) lack Chromium's shared libs (libnss3 etc.), so fall
+  // back to @sparticuz/chromium, which bundles them.
+  const baseArgs = ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'];
+  let launchOpts;
+  const systemChrome = findChrome();
+  if (systemChrome) {
+    launchOpts = { executablePath: systemChrome, headless: true, args: baseArgs };
+    console.log('[prerender] using system Chrome:', systemChrome);
+  } else {
+    const chromium = require('@sparticuz/chromium');
+    launchOpts = {
+      executablePath: await chromium.executablePath(),
+      args: [...chromium.args, ...baseArgs],
+      headless: chromium.headless,
+    };
+    console.log('[prerender] using @sparticuz/chromium');
   }
-  if (!executablePath) {
-    console.error('[prerender] No Chrome/Chromium found. Install `puppeteer` or set CHROME_PATH.');
-    process.exit(1);
-  }
-  console.log('[prerender] using browser:', executablePath);
 
   const serveBin = path.join(ROOT, 'node_modules', '.bin', 'serve');
   const server = spawn(serveBin, ['-s', BUILD, '-l', String(PORT), '--no-clipboard'], {
@@ -74,11 +69,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
   });
   await sleep(2500);
 
-  const browser = await puppeteer.launch({
-    executablePath,
-    headless: true,
-    args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'],
-  });
+  const browser = await puppeteer.launch(launchOpts);
 
   const results = [];
   try {
@@ -92,6 +83,13 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
       await sleep(500); // let Seo effects flush into <head>
       let html = await page.content();
       if (!/^<!doctype/i.test(html)) html = '<!doctype html>\n' + html;
+      // Safety gate: never let an empty/broken render ship. If Chromium launched
+      // but the app failed to paint, fail the build so the last good deploy stays.
+      if (html.length < 5000 || !/<h1[\s>]/i.test(html)) {
+        throw new Error(
+          `route ${route} rendered too small or missing <h1> (${html.length} bytes) — refusing to ship`
+        );
+      }
       results.push({ route, html });
       await page.close();
     }
