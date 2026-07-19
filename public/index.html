@@ -1,90 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta name="description" content="Rychlý a spolehlivý servis praček, myček a sušiček v Praze a okolí. Objednejte opravu ještě dnes!">
+    <meta name="theme-color" content="#2563eb" />
+    <link rel="canonical" href="https://dokonala-oprava.cz/" />
+
+    <title>Oprava praček, myček a sušiček v Praze | Dokonalá Oprava</title>
+    <meta name="description" content="Rychlý a férový servis praček, myček a sušiček po celé Praze. Výjezd zdarma, oprava často ještě dnes. Zavolejte +420 730 520 302." />
 
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>Oprava praček, myček a sušiček | Dokonala Oprava Praha</title>
-    <meta property="og:title" content="Oprava praček, myček a sušiček v Praze – Dokonala Oprava" />
-<meta property="og:description" content="Rychlý a férový servis domácích spotřebičů po celé Praze. Objednejte opravu ještě dnes." />
-<meta property="og:image" content="https://tvoy-site.cz/logo.png" />
-<meta property="og:url" content="https://tvoy-site.cz/" />
-<meta property="og:type" content="website" />
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "Dokonala Oprava",
-  "image": "https://oprava-cz.vercel.app/logo.png",
-  "@id": "https://oprava-cz.vercel.app/",
-  "url": "https://oprava-cz.vercel.app/",
-  "telephone": "+420730520302",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Praha",
-    "addressCountry": "CZ"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 50.0755,
-    "longitude": 14.4378
-  },
-  "sameAs": [
-    "https://www.facebook.com",
-    "https://www.instagram.com"
-  ],
-  "description": "Opravy praček, myček a sušiček po celé Praze. Rychlý a kvalitní servis s důvěrou."
-}
-</script>
+    <!-- Open Graph (defaults; upgraded per-route at runtime by the Seo component) -->
+    <meta property="og:site_name" content="Dokonalá Oprava" />
+    <meta property="og:title" content="Oprava praček, myček a sušiček v Praze | Dokonalá Oprava" />
+    <meta property="og:description" content="Rychlý a férový servis domácích spotřebičů po celé Praze. Objednejte opravu ještě dnes." />
+    <meta property="og:image" content="https://dokonala-oprava.cz/logo.png" />
+    <meta property="og:url" content="https://dokonala-oprava.cz/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="cs_CZ" />
 
-<!-- Google tag (gtag.js) -->
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17121369422"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  // Google Ads (что просит Google)
-  gtag('config', 'AW-17121369422');
-
-  // Google Analytics 4 (твой счётчик аналитики)
-  gtag('config', 'G-49WRGREL5V');
-</script>
-
-
-
+    <!-- Google tag (gtag.js) — Google Ads + GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17121369422"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17121369422');
+      gtag('config', 'G-49WRGREL5V');
+    </script>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>Pro plné zobrazení webu prosím povolte JavaScript. Zavolejte nám na +420 730 520 302.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
   </body>
 </html>

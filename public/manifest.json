@@ -1,6 +1,8 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Dokonalá Oprava",
+  "name": "Dokonalá Oprava — servis praček, myček a sušiček Praha",
+  "description": "Rychlá a férová oprava praček, myček a sušiček po celé Praze.",
+  "lang": "cs",
   "icons": [
     {
       "src": "favicon.ico",
@@ -18,8 +20,8 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#2563eb",
   "background_color": "#ffffff"
 }

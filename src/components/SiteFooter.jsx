@@ -7,7 +7,7 @@ export default function SiteFooter() {
         <div>
           <h3 className="text-xl font-semibold mb-3">Dokonalá Oprava</h3>
           <p className="text-sm opacity-75">Oprava domácích spotřebičů po celé Praze a okolí</p>
-          <p className="text-sm mt-2 opacity-75">&copy; {new Date().getFullYear()} alexkanonovich.cz</p>
+          <p className="text-sm mt-2 opacity-75">&copy; {new Date().getFullYear()} Dokonalá Oprava · dokonala-oprava.cz</p>
         </div>
 
         <div>

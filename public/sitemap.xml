@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://dokonalaoprava.cz/</loc>
-    <lastmod>2026-03-22</lastmod>
+    <loc>https://dokonala-oprava.cz/</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://dokonalaoprava.cz/oprava-pracek-praha</loc>
-    <lastmod>2026-03-22</lastmod>
+    <loc>https://dokonala-oprava.cz/oprava-pracek-praha</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://dokonalaoprava.cz/oprava-mycek-praha</loc>
-    <lastmod>2026-03-22</lastmod>
+    <loc>https://dokonala-oprava.cz/oprava-mycek-praha</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://dokonalaoprava.cz/oprava-susicek-praha</loc>
-    <lastmod>2026-03-22</lastmod>
+    <loc>https://dokonala-oprava.cz/oprava-susicek-praha</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.90</priority>
   </url>
 </urlset>

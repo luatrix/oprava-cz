@@ -1,12 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import { FaCheckCircle, FaPhoneAlt, FaTimes } from 'react-icons/fa';
+import { FaCheckCircle, FaPhoneAlt, FaTimes, FaTools } from 'react-icons/fa';
 import SiteHeader from '../components/SiteHeader';
 import ContactSection from '../components/ContactSection';
 import SiteFooter from '../components/SiteFooter';
 import RepairRequestForm from '../components/RepairRequestForm';
+import FaqSection from '../components/FaqSection';
+import Seo from '../components/Seo';
+import { content } from '../seo/content';
+import {
+  businessJsonLd,
+  serviceJsonLd,
+  faqJsonLd,
+  breadcrumbJsonLd,
+} from '../seo/siteConfig';
 
-export default function SeoServicePage({ title, lead, paragraphOne, paragraphTwo, details = [] }) {
+export default function SeoServicePage({ service }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { slug, metaTitle, metaDescription, h1, lead, intro, body, commonFaults, faq, shortName } = service;
 
   useEffect(() => {
     document.body.style.overflow = isModalOpen ? 'hidden' : '';
@@ -29,34 +39,71 @@ export default function SeoServicePage({ title, lead, paragraphOne, paragraphTwo
 
   return (
     <div className="min-h-screen font-sans bg-gradient-to-br from-white to-[#f9fbfd]">
+      <Seo
+        title={metaTitle}
+        description={metaDescription}
+        path={slug}
+        jsonLd={[
+          businessJsonLd(),
+          serviceJsonLd({ name: shortName, description: intro, slug }),
+          faqJsonLd(faq),
+          breadcrumbJsonLd([
+            { name: 'Úvod', path: '/' },
+            { name: shortName, path: slug },
+          ]),
+        ]}
+      />
       <SiteHeader />
 
       <main className="pt-32 pb-16 px-6">
         <section className="max-w-5xl mx-auto bg-white rounded-2xl p-8 shadow">
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-6">{title}</h1>
-          <p className="text-lg text-gray-700 mb-4">{lead}</p>
-          <p className="text-lg text-gray-700 mb-4">{paragraphOne}</p>
-          <p className="text-lg text-gray-700 mb-6">{paragraphTwo}</p>
+          <nav aria-label="Drobečková navigace" className="text-sm text-gray-500 mb-4">
+            <a href="/" className="hover:text-blue-600">Úvod</a> <span className="mx-1">/</span>
+            <span className="text-gray-700">{shortName}</span>
+          </nav>
 
-          {details.length > 0 && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-              {details.map((item) => (
-                <div key={item} className="rounded-xl border border-blue-100 bg-[#f8fbff] px-4 py-3 text-gray-700 flex items-start gap-3">
-                  <FaCheckCircle className="text-blue-600 mt-1 shrink-0" />
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
-          )}
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-5">{h1}</h1>
+          <p className="text-xl text-gray-800 font-medium mb-6">{lead}</p>
+          <p className="text-lg text-gray-700 mb-4">{intro}</p>
 
           <button
             type="button"
             onClick={() => setIsModalOpen(true)}
-            className="inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl text-lg font-semibold shadow transition"
+            className="inline-flex items-center gap-3 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl text-lg font-semibold shadow transition mb-8"
           >
             <FaPhoneAlt />
             Zavolejte: +420 730 520 302
           </button>
+
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Nejčastější závady, které opravujeme</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+            {commonFaults.map((item) => (
+              <div
+                key={item}
+                className="rounded-xl border border-blue-100 bg-[#f8fbff] px-4 py-3 text-gray-700 flex items-start gap-3"
+              >
+                <FaCheckCircle className="text-blue-600 mt-1 shrink-0" />
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
+
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Jak probíhá oprava</h2>
+          <p className="text-lg text-gray-700 leading-relaxed mb-8">{body}</p>
+
+          <div className="rounded-xl bg-[#f4f7fa] border border-blue-100 p-6 mb-8">
+            <h2 className="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
+              <FaTools className="text-blue-600" /> Značky, které opravujeme
+            </h2>
+            <p className="text-gray-700">{content.brands.join(', ')} a další.</p>
+          </div>
+
+          <div className="rounded-xl bg-white border border-blue-100 p-6">
+            <h2 className="text-xl font-bold text-gray-900 mb-3">Kam v Praze vyjíždíme</h2>
+            <p className="text-gray-700">
+              Výjezd po celé Praze je zdarma — {content.districts.join(', ')} a další lokality.
+            </p>
+          </div>
         </section>
       </main>
 
@@ -97,6 +144,7 @@ export default function SeoServicePage({ title, lead, paragraphOne, paragraphTwo
         </div>
       )}
 
+      <FaqSection heading="Časté dotazy k této službě" items={faq} />
       <ContactSection />
       <SiteFooter />
     </div>

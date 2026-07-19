@@ -1,8 +1,12 @@
 {
-  "rewrites": [
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
     {
       "source": "/(.*)",
-      "destination": "/index.html"
+      "has": [{ "type": "host", "value": "oprava-cz.vercel.app" }],
+      "destination": "https://dokonala-oprava.cz/$1",
+      "permanent": true
     }
   ]
 }

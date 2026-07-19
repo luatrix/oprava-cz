@@ -1,11 +1,15 @@
 import React from 'react';
-import { FaCheckCircle, FaPhoneAlt, FaQuoteLeft, FaTools } from 'react-icons/fa';
+import { FaCheckCircle, FaPhoneAlt, FaTools } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import washingMachine from './assets/washing-machine.png';
 import repairGuy from './assets/repair-man.png';
 import SiteHeader from './components/SiteHeader';
 import ContactSection from './components/ContactSection';
 import SiteFooter from './components/SiteFooter';
+import FaqSection from './components/FaqSection';
+import Seo from './components/Seo';
+import { content, serviceList } from './seo/content';
+import { businessJsonLd, faqJsonLd } from './seo/siteConfig';
 
 const benefits = [
   {
@@ -26,28 +30,21 @@ const benefits = [
   }
 ];
 
-const seoLinks = [
-  { title: 'Oprava praček Praha', path: '/oprava-pracek-praha' },
-  { title: 'Oprava myček Praha', path: '/oprava-mycek-praha' },
-  { title: 'Oprava sušiček Praha', path: '/oprava-susicek-praha' }
-];
-
-const reviews = [
-  {
-    quote: '“Přijeli ještě tentýž den a oprava byla hotová za hodinu. Velmi doporučuji.”',
-    author: 'Petr, Praha'
-  },
-  {
-    quote: '“Férové jednání, spolehlivá oprava. Skvělá komunikace.”',
-    author: 'Jana, Praha'
-  }
-];
+const seoLinks = serviceList.map((s) => ({ title: s.shortName, path: s.slug }));
 
 const pricingFactors = ['stav zařízení', 'typ závady', 'přístup k zařízení'];
 
 export default function LandingPage() {
+  const { trustBlock, brands, districts } = content;
+
   return (
     <div className="min-h-screen font-sans bg-gradient-to-br from-white to-[#f9fbfd]">
+      <Seo
+        title={content.home.metaTitle}
+        description={content.home.metaDescription}
+        path="/"
+        jsonLd={[businessJsonLd(), faqJsonLd(content.home.faq)]}
+      />
       <SiteHeader />
 
       <section className="relative overflow-hidden min-h-screen pt-16 sm:pt-28">
@@ -199,18 +196,55 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section className="bg-white py-16 px-6" id="reviews">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 text-center mb-4">Reference / Důvěra</h2>
-          <p className="text-center text-gray-600 mb-10">Co o nás říkají zákazníci:</p>
+      <section className="bg-white py-16 px-6" id="trust">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 text-center mb-3">{trustBlock.heading}</h2>
+          <p className="text-center text-gray-600 mb-10">{trustBlock.note}</p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {reviews.map((review) => (
-              <article key={review.quote} className="bg-[#f4f7fa] p-7 rounded-xl shadow border border-blue-100">
-                <FaQuoteLeft className="text-blue-300 text-2xl mb-3" />
-                <p className="text-gray-700 text-lg leading-relaxed mb-4">{review.quote}</p>
-                <p className="font-semibold text-gray-900">– {review.author}</p>
-              </article>
+            {trustBlock.points.map((point) => (
+              <div key={point.title} className="bg-[#f4f7fa] p-7 rounded-xl shadow border border-blue-100">
+                <h3 className="text-lg font-bold text-gray-900 mb-2 flex items-center gap-2">
+                  <FaCheckCircle className="text-blue-600 shrink-0" />
+                  {point.title}
+                </h3>
+                <p className="text-gray-700 leading-relaxed">{point.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#f8fbff] py-16 px-6" id="brands">
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">Opravujeme spotřebiče všech značek</h2>
+          <p className="text-gray-700 mb-8">
+            Servisujeme jak starší modely, tak nové spotřebiče s elektronikou.
+          </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            {brands.map((brand) => (
+              <span
+                key={brand}
+                className="bg-white border border-blue-100 rounded-full px-4 py-2 text-gray-800 font-medium shadow-sm"
+              >
+                {brand}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-16 px-6" id="coverage">
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">Kam v Praze vyjíždíme</h2>
+          <p className="text-gray-700 mb-8">
+            Výjezd po celé Praze je vždy zdarma. Sídlíme ve Strašnicích na Praze 10 a běžně jezdíme mimo jiné do těchto lokalit:
+          </p>
+          <div className="flex flex-wrap justify-center gap-2 text-gray-700">
+            {districts.map((d) => (
+              <span key={d} className="bg-[#f4f7fa] border border-gray-100 rounded-lg px-3 py-1 text-sm">
+                {d}
+              </span>
             ))}
           </div>
         </div>
@@ -225,6 +259,7 @@ export default function LandingPage() {
         </div>
       </section>
 
+      <FaqSection heading="Časté dotazy" items={content.home.faq} />
       <ContactSection />
       <SiteFooter />
     </div>
