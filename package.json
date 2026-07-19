@@ -42,11 +42,9 @@
     ]
   },
   "devDependencies": {
-    "@sparticuz/chromium": "^131.0.1",
     "autoprefixer": "^10.4.14",
+    "esbuild": "^0.28.1",
     "postcss": "^8.4.21",
-    "puppeteer-core": "^23.11.1",
-    "serve": "^14.2.6",
     "tailwindcss": "^3.4.3"
   }
 }

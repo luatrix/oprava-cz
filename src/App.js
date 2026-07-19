@@ -1,9 +1,6 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
-import LandingPage from './LandingPage';
-import SeoServicePage from './pages/SeoServicePage';
-import NotFound from './pages/NotFound';
-import { serviceList } from './seo/content';
+import { BrowserRouter, useLocation } from 'react-router-dom';
+import AppRoutes from './AppRoutes';
 
 function ScrollManager() {
   const location = useLocation();
@@ -33,13 +30,7 @@ function App() {
   return (
     <BrowserRouter>
       <ScrollManager />
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        {serviceList.map((service) => (
-          <Route key={service.slug} path={service.slug} element={<SeoServicePage service={service} />} />
-        ))}
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <AppRoutes />
     </BrowserRouter>
   );
 }

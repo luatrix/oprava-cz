@@ -1,115 +1,111 @@
 /* eslint-disable */
-// Prerender the SPA into static, crawler-ready HTML using the system Chrome.
-// Runs automatically after `npm run build` (postbuild). Serves the built app,
-// visits each route with a real browser, waits for React + the Seo component to
-// paint, then writes the fully-rendered DOM back to build/<route>/index.html.
-const { spawn } = require('child_process');
+// Browserless prerender: render the React app to static HTML with react-dom/server
+// at build time. No headless browser (Vercel's build container can't launch one),
+// so this works in any environment. Runs as `postbuild`.
+//
+// Image imports are resolved to the real hashed URLs from CRA's asset-manifest,
+// so prerendered <img src> matches the client bundle exactly (no hydration
+// mismatch, no data-URI bloat).
 const fs = require('fs');
 const path = require('path');
-const puppeteer = require('puppeteer-core');
+const esbuild = require('esbuild');
 
 const ROOT = path.join(__dirname, '..');
 const BUILD = path.join(ROOT, 'build');
-const PORT = 4188;
-const ROUTES = [
-  '/',
-  '/oprava-pracek-praha',
-  '/oprava-mycek-praha',
-  '/oprava-susicek-praha',
-];
+const ROUTES = ['/', '/oprava-pracek-praha', '/oprava-mycek-praha', '/oprava-susicek-praha'];
 
-function findChrome() {
-  const candidates = [
-    process.env.CHROME_PATH,
-    '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
-    '/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary',
-    '/Applications/Chromium.app/Contents/MacOS/Chromium',
-    '/usr/bin/google-chrome',
-    '/usr/bin/chromium-browser',
-    '/usr/bin/chromium',
-  ].filter(Boolean);
-  return candidates.find((p) => {
-    try {
-      return fs.existsSync(p);
-    } catch (e) {
-      return false;
-    }
-  });
+const attrEscape = (s = '') =>
+  String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const jsonLdEscape = (obj) => JSON.stringify(obj).replace(/</g, '\\u003c');
+
+function imageManifestPlugin(imgMap) {
+  return {
+    name: 'image-manifest',
+    setup(build) {
+      const filter = /\.(png|jpe?g|gif|svg|webp|avif)$/;
+      build.onResolve({ filter }, (args) => ({ path: args.path, namespace: 'img' }));
+      build.onLoad({ filter: /.*/, namespace: 'img' }, (args) => {
+        const base = path.basename(args.path);
+        const url = imgMap[base] || '/static/media/' + base;
+        return { contents: `export default ${JSON.stringify(url)};`, loader: 'js' };
+      });
+    },
+  };
 }
 
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+function buildHead(meta, siteName) {
+  const parts = [];
+  parts.push(`<title>${attrEscape(meta.title)}</title>`);
+  parts.push(`<meta name="description" content="${attrEscape(meta.description)}">`);
+  parts.push(`<link rel="canonical" href="${attrEscape(meta.canonical)}">`);
+  parts.push(`<meta name="robots" content="index, follow">`);
+  parts.push(`<meta property="og:site_name" content="${attrEscape(siteName)}">`);
+  parts.push(`<meta property="og:title" content="${attrEscape(meta.title)}">`);
+  parts.push(`<meta property="og:description" content="${attrEscape(meta.description)}">`);
+  parts.push(`<meta property="og:url" content="${attrEscape(meta.canonical)}">`);
+  parts.push(`<meta property="og:type" content="website">`);
+  parts.push(`<meta property="og:locale" content="cs_CZ">`);
+  parts.push(`<meta name="twitter:card" content="summary_large_image">`);
+  for (const block of meta.jsonLd || []) {
+    parts.push(`<script type="application/ld+json" data-seo-jsonld>${jsonLdEscape(block)}</script>`);
+  }
+  return parts.join('');
+}
+
+function stripDefaultHead(html) {
+  return html
+    .replace(/<title>[\s\S]*?<\/title>/i, '')
+    .replace(/<meta\s+name="description"[^>]*>/i, '')
+    .replace(/<link\s+rel="canonical"[^>]*>/i, '')
+    .replace(/<meta\s+property="og:[^>]*>/gi, '')
+    .replace(/<meta\s+name="twitter:[^>]*>/gi, '');
+}
 
 (async () => {
-  if (!fs.existsSync(path.join(BUILD, 'index.html'))) {
+  const templatePath = path.join(BUILD, 'index.html');
+  if (!fs.existsSync(templatePath)) {
     console.error('[prerender] build/index.html missing — run build first.');
     process.exit(1);
   }
-  // Local dev/CI-with-Chrome: use system Chrome (fast). Serverless build
-  // containers (Vercel) lack Chromium's shared libs (libnss3 etc.), so fall
-  // back to @sparticuz/chromium, which bundles them.
-  const baseArgs = ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'];
-  let launchOpts;
-  const systemChrome = findChrome();
-  if (systemChrome) {
-    launchOpts = { executablePath: systemChrome, headless: true, args: baseArgs };
-    console.log('[prerender] using system Chrome:', systemChrome);
-  } else {
-    const chromium = require('@sparticuz/chromium');
-    launchOpts = {
-      executablePath: await chromium.executablePath(),
-      args: [...chromium.args, ...baseArgs],
-      headless: chromium.headless,
-    };
-    console.log('[prerender] using @sparticuz/chromium');
-  }
 
-  const serveBin = path.join(ROOT, 'node_modules', '.bin', 'serve');
-  const server = spawn(serveBin, ['-s', BUILD, '-l', String(PORT), '--no-clipboard'], {
-    stdio: 'ignore',
+  // Map "washing-machine.png" -> "/static/media/washing-machine.<hash>.png"
+  const manifest = require(path.join(BUILD, 'asset-manifest.json')).files || {};
+  const imgMap = {};
+  for (const [key, url] of Object.entries(manifest)) imgMap[path.basename(key)] = url;
+
+  const outfile = path.join(ROOT, 'node_modules', '.cache', 'ssr', 'ssr-bundle.cjs');
+  fs.mkdirSync(path.dirname(outfile), { recursive: true });
+  await esbuild.build({
+    entryPoints: [path.join(ROOT, 'scripts', 'ssr-entry.jsx')],
+    bundle: true,
+    platform: 'node',
+    format: 'cjs',
+    outfile,
+    jsx: 'automatic',
+    loader: { '.css': 'empty' },
+    plugins: [imageManifestPlugin(imgMap)],
+    logLevel: 'error',
   });
-  await sleep(2500);
 
-  const browser = await puppeteer.launch(launchOpts);
+  const ssr = require(outfile);
+  const template = fs.readFileSync(templatePath, 'utf8');
 
-  const results = [];
-  try {
-    for (const route of ROUTES) {
-      const page = await browser.newPage();
-      await page.goto(`http://localhost:${PORT}${route}`, {
-        waitUntil: 'networkidle0',
-        timeout: 30000,
-      });
-      await page.waitForSelector('h1', { timeout: 15000 }).catch(() => {});
-      await sleep(500); // let Seo effects flush into <head>
-      let html = await page.content();
-      if (!/^<!doctype/i.test(html)) html = '<!doctype html>\n' + html;
-      // Safety gate: never let an empty/broken render ship. If Chromium launched
-      // but the app failed to paint, fail the build so the last good deploy stays.
-      if (html.length < 5000 || !/<h1[\s>]/i.test(html)) {
-        throw new Error(
-          `route ${route} rendered too small or missing <h1> (${html.length} bytes) — refusing to ship`
-        );
-      }
-      results.push({ route, html });
-      await page.close();
+  for (const route of ROUTES) {
+    const body = ssr.renderBody(route);
+    if (body.length < 4000 || !/<h1[\s>]/i.test(body)) {
+      console.error(`[prerender] route ${route} rendered too small / missing <h1> (${body.length} bytes) — refusing to ship.`);
+      process.exit(1);
     }
-  } catch (err) {
-    console.error('[prerender] failed:', err.message);
-    await browser.close();
-    server.kill();
-    process.exit(1);
-  }
+    const head = buildHead(ssr.getMeta(route), ssr.siteName);
+    let html = stripDefaultHead(template).replace('</head>', head + '</head>');
+    html = html.replace('<div id="root"></div>', `<div id="root">${body}</div>`);
 
-  await browser.close();
-  server.kill();
-
-  for (const { route, html } of results) {
     const outDir = route === '/' ? BUILD : path.join(BUILD, route);
     fs.mkdirSync(outDir, { recursive: true });
     fs.writeFileSync(path.join(outDir, 'index.html'), html, 'utf8');
     console.log('[prerender] wrote', route === '/' ? '/index.html' : route + '/index.html');
   }
-  console.log('[prerender] done —', results.length, 'routes.');
+  console.log('[prerender] done —', ROUTES.length, 'routes (browserless).');
   process.exit(0);
 })().catch((e) => {
   console.error('[prerender] fatal:', e);
