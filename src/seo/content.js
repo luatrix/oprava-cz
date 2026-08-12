@@ -4,15 +4,15 @@ export const content = {
   home: {
     metaTitle: 'Oprava praček, myček a sušiček Praha | Dokonalá Oprava',
     metaDescription:
-      'Opravy praček, myček a sušiček přímo u vás doma v Praze. Výjezd zdarma, servis do 24 hodin, záruka na práci. Zavolejte +420 730 520 302.',
+      'Oprava praček, myček a sušiček u vás doma v Praze. Výjezd zdarma, cena předem a záruka na práci. Zavolejte +420 730 520 302.',
     faq: [
       {
         q: 'Kolik stojí oprava pračky, myčky nebo sušičky v Praze?',
         a: 'Běžná oprava vyjde na 800 až 2000 Kč podle typu závady. Výjezd technika po Praze je zdarma a diagnostika od 500 Kč je při provedené opravě zcela zdarma. Přesnou cenu vám sdělíme předem, ještě před zahájením práce, takže vás nečekají žádné skryté poplatky.',
       },
       {
-        q: 'Jak rychle k nám technik přijede?',
-        a: 'Ve většině případů přijedeme týž nebo následující den. Standardně garantujeme servis do 24 hodin od objednání. Termín si domluvíte telefonicky nebo přes WhatsApp na čísle +420 730 520 302, objednávky přijímáme každý den od 7:00 do 22:00.',
+        q: 'Jak si domluvím termín návštěvy technika?',
+        a: 'Zavolejte nebo napište přes WhatsApp na číslo +420 730 520 302. Podle typu spotřebiče, závady a vaší adresy společně domluvíme konkrétní dostupný termín. Objednávky přijímáme každý den od 7:00 do 22:00.',
       },
       {
         q: 'Jaké značky spotřebičů opravujete?',
@@ -51,9 +51,9 @@ export const content = {
     note: 'Recenze od reálných zákazníků najdete v našem profilu na Googlu, hodnocení si nikdy nevymýšlíme.',
     points: [
       {
-        title: 'Rychlý servis do 24 hodin',
+        title: 'Termín domluvíme přímo s vámi',
         description:
-          'Přijedeme často týž nebo následující den. Termín si domluvíte telefonicky nebo přes WhatsApp, objednávky bereme denně od 7:00 do 22:00.',
+          'Při objednání si potvrdíme typ závady, adresu i konkrétní dostupný termín. Objednávky přijímáme denně od 7:00 do 22:00.',
       },
       {
         title: 'Férové a jasné ceny',
@@ -79,12 +79,12 @@ export const content = {
       shortName: 'Oprava praček Praha',
       metaTitle: 'Oprava praček Praha u vás doma | Dokonalá Oprava',
       metaDescription:
-        'Oprava praček všech značek přímo u vás doma v Praze. Výjezd zdarma, servis do 24 hodin, cena předem. Volejte +420 730 520 302.',
+        'Oprava praček všech značek u vás doma v Praze. Výjezd zdarma, cena předem a záruka na práci. Volejte +420 730 520 302.',
       h1: 'Oprava praček v Praze přímo u vás doma',
-      lead: 'Neodčerpává vaše pračka vodu, netočí bubnem nebo hlásí chybový kód? Přijedeme často týž den a spravíme ji přímo u vás doma.',
+      lead: 'Neodčerpává vaše pračka vodu, netočí bubnem nebo hlásí chybový kód? Závadu zjistíme a opravu provedeme přímo u vás doma.',
       intro:
         'Opravujeme automatické pračky všech běžných značek přímo u zákazníka doma v Praze a okolí. Výjezd technika po Praze je zdarma a přesnou cenu opravy vám vždy sdělíme předem. Se závadami praček máme více než pět let zkušeností, takže většinu poruch zvládneme vyřešit hned na místě.',
-      body: 'Pračka je spotřebič, který používáme prakticky denně, a když se porouchá, řešíte to obvykle hned. Naši technici jezdí přímo za vámi do bytu či domu po celé Praze a poruchu diagnostikují na místě. Diagnostika od 500 Kč je přitom zdarma, pokud u nás objednáte opravu. Nejčastěji řešíme pračky, které neodčerpávají vodu kvůli ucpanému čerpadlu nebo filtru, netočí bubnem kvůli opotřebovaným uhlíkům motoru nebo prasklému řemenu, případně neohřívají vodu kvůli vadnému topnému tělesu. Časté jsou také poruchy ložisek bubnu, které se projevují silným hlukem a vibracemi při ždímání, nebo zaseknutá dvířka, u kterých selhal zámek. U moderních praček bývá příčinou závady také elektronika a chybové kódy na displeji, které umíme přečíst a správně vyhodnotit. Při opravě používáme kvalitní náhradní díly, ať už jde o čerpadla, topná tělesa, ložiska, řemeny nebo elektronické moduly. Běžná oprava pračky vyjde na 800 až 2000 Kč podle typu závady a náročnosti výměny dílu, přesnou částku vám ale řekneme dřív, než začneme pracovat. Nečekají vás tedy žádné skryté poplatky a rozhodnutí, zda opravu provést, je vždy na vás. Na provedenou práci i vyměněné díly poskytujeme záruku. Opravujeme pračky značek Bosch, Siemens, Samsung, LG, Whirlpool, Electrolux, Beko, Miele, AEG, Candy, Gorenje, Indesit a dalších. Termín návštěvy si domluvíte telefonicky nebo přes WhatsApp na čísle +420 730 520 302, běžně přijedeme týž nebo následující den a servis zvládáme do 24 hodin.',
+      body: 'Pračka je spotřebič, který používáme prakticky denně, a její porucha dokáže domácnost výrazně omezit. Naši technici jezdí přímo za vámi do bytu či domu po celé Praze a poruchu diagnostikují na místě. Diagnostika od 500 Kč je zdarma, pokud u nás objednáte opravu. Nejčastěji řešíme pračky, které neodčerpávají vodu kvůli ucpanému čerpadlu nebo filtru, netočí bubnem kvůli opotřebovaným uhlíkům motoru nebo prasklému řemenu, případně neohřívají vodu kvůli vadnému topnému tělesu. Časté jsou také poruchy ložisek bubnu, které se projevují silným hlukem a vibracemi při ždímání, nebo zaseknutá dvířka, u kterých selhal zámek. U moderních praček bývá příčinou závady také elektronika a chybové kódy na displeji, které umíme přečíst a správně vyhodnotit. Při opravě používáme kvalitní náhradní díly, ať už jde o čerpadla, topná tělesa, ložiska, řemeny nebo elektronické moduly. Běžná oprava pračky vyjde na 800 až 2000 Kč podle typu závady a náročnosti výměny dílu, přesnou částku vám ale řekneme dřív, než začneme pracovat. Nečekají vás tedy žádné skryté poplatky a rozhodnutí, zda opravu provést, je vždy na vás. Na provedenou práci i vyměněné díly poskytujeme záruku. Opravujeme pračky značek Bosch, Siemens, Samsung, LG, Whirlpool, Electrolux, Beko, Miele, AEG, Candy, Gorenje, Indesit a dalších. Konkrétní dostupný termín návštěvy si domluvíte telefonicky nebo přes WhatsApp na čísle +420 730 520 302.',
       commonFaults: [
         'Pračka neodčerpává vodu (ucpané čerpadlo nebo filtr)',
         'Buben se netočí (opotřebené uhlíky, prasklý řemen)',
@@ -120,12 +120,12 @@ export const content = {
       shortName: 'Oprava myček Praha',
       metaTitle: 'Oprava myček nádobí Praha u vás doma | Dokonalá Oprava',
       metaDescription:
-        'Oprava myček nádobí všech značek u vás doma v Praze. Výjezd zdarma, servis do 24 hodin, cena předem. Volejte +420 730 520 302.',
+        'Oprava myček nádobí všech značek u vás doma v Praze. Výjezd zdarma, cena předem a záruka na práci. Volejte +420 730 520 302.',
       h1: 'Oprava myček nádobí v Praze přímo u vás doma',
-      lead: 'Myčka nemyje dočista, nenapouští vodu nebo netěsní? Přijedeme často týž den a poruchu vyřešíme přímo u vás doma.',
+      lead: 'Myčka nemyje dočista, nenapouští vodu nebo netěsní? Závadu zjistíme a opravu provedeme přímo u vás doma.',
       intro:
         'Opravujeme myčky nádobí všech běžných značek přímo u zákazníka doma v Praze a okolí. Výjezd technika po Praze je zdarma a konečnou cenu opravy vám sdělíme předem. Díky více než pěti letům zkušeností většinu závad myček vyřešíme přímo na místě.',
-      body: 'Myčka nádobí nám šetří čas každý den, a když přestane fungovat, hromadí se špinavé nádobí velmi rychle. Naši technici přijedou přímo za vámi domů po celé Praze a poruchu diagnostikují na místě. Diagnostika od 500 Kč je zdarma, pokud u nás následně objednáte opravu. U myček nejčastěji řešíme situace, kdy spotřebič nenapouští nebo neodčerpává vodu kvůli vadnému napouštěcímu ventilu, ucpanému filtru či čerpadlu. Časté je také to, že myčka nemyje dočista, což bývá způsobeno ucpanými ostřikovacími rameny, zaneseným filtrem nebo vadným cirkulačním čerpadlem. Řešíme rovněž myčky, které nehřejí vodu, takže nádobí zůstává mastné a nedosuší se, nebo naopak myčky, které netěsní a teče z nich voda kvůli vadnému těsnění dvířek či prasklé hadici. U spotřebičů s elektronikou se setkáváme s chybovými kódy na displeji a poruchami řídicí jednotky, které umíme přečíst a vyhodnotit. Poměrně běžná je také porucha Aquastop ventilu na přívodní hadici. Při opravě používáme kvalitní náhradní díly, ať už jde o čerpadla, ventily, topná tělesa, ostřikovací ramena nebo elektronické moduly. Běžná oprava myčky vyjde na 800 až 2000 Kč podle typu závady, přesnou částku vám ale řekneme ještě před zahájením práce. Nečekají vás tak žádné skryté poplatky a rozhodnutí o opravě necháváme vždy na vás. Na provedenou práci i vyměněné díly poskytujeme záruku. Opravujeme myčky značek Bosch, Siemens, Samsung, LG, Whirlpool, Electrolux, Beko, Miele, AEG, Candy, Gorenje, Indesit a dalších. Termín si domluvíte telefonicky nebo přes WhatsApp na čísle +420 730 520 302, běžně přijedeme týž nebo následující den a servis zvládáme do 24 hodin.',
+      body: 'Myčka nádobí nám šetří čas každý den, a když přestane fungovat, hromadí se špinavé nádobí velmi rychle. Naši technici přijedou přímo za vámi domů po celé Praze a poruchu diagnostikují na místě. Diagnostika od 500 Kč je zdarma, pokud u nás následně objednáte opravu. U myček nejčastěji řešíme situace, kdy spotřebič nenapouští nebo neodčerpává vodu kvůli vadnému napouštěcímu ventilu, ucpanému filtru či čerpadlu. Časté je také to, že myčka nemyje dočista, což bývá způsobeno ucpanými ostřikovacími rameny, zaneseným filtrem nebo vadným cirkulačním čerpadlem. Řešíme rovněž myčky, které nehřejí vodu, takže nádobí zůstává mastné a nedosuší se, nebo naopak myčky, které netěsní a teče z nich voda kvůli vadnému těsnění dvířek či prasklé hadici. U spotřebičů s elektronikou se setkáváme s chybovými kódy na displeji a poruchami řídicí jednotky, které umíme přečíst a vyhodnotit. Poměrně běžná je také porucha Aquastop ventilu na přívodní hadici. Při opravě používáme kvalitní náhradní díly, ať už jde o čerpadla, ventily, topná tělesa, ostřikovací ramena nebo elektronické moduly. Běžná oprava myčky vyjde na 800 až 2000 Kč podle typu závady, přesnou částku vám ale řekneme ještě před zahájením práce. Nečekají vás tak žádné skryté poplatky a rozhodnutí o opravě necháváme vždy na vás. Na provedenou práci i vyměněné díly poskytujeme záruku. Opravujeme myčky značek Bosch, Siemens, Samsung, LG, Whirlpool, Electrolux, Beko, Miele, AEG, Candy, Gorenje, Indesit a dalších. Konkrétní dostupný termín si domluvíte telefonicky nebo přes WhatsApp na čísle +420 730 520 302.',
       commonFaults: [
         'Myčka nenapouští vodu (vadný napouštěcí ventil)',
         'Myčka neodčerpává vodu (ucpaný filtr nebo čerpadlo)',
@@ -151,7 +151,7 @@ export const content = {
         },
         {
           q: 'Přijedete opravit myčku i o víkendu?',
-          a: 'V sobotu jsme k dispozici od 7:00 do 16:00. Objednávky přijímáme každý den od 7:00 do 22:00 na čísle +420 730 520 302 nebo přes WhatsApp a běžně přijedeme týž nebo následující den.',
+          a: 'V sobotu jsme k dispozici od 7:00 do 16:00. Objednávky přijímáme každý den od 7:00 do 22:00 na čísle +420 730 520 302 nebo přes WhatsApp. Při objednání společně potvrdíme konkrétní dostupný termín.',
         },
       ],
     },
@@ -163,10 +163,10 @@ export const content = {
       metaDescription:
         'Oprava sušiček prádla všech typů u vás doma v Praze. Kondenzační i s tepelným čerpadlem. Výjezd zdarma. Volejte +420 730 520 302.',
       h1: 'Oprava sušiček prádla v Praze přímo u vás doma',
-      lead: 'Sušička nesuší, nehřeje nebo hlásí zaplněnou nádržku? Přijedeme často týž den a spravíme ji přímo u vás doma.',
+      lead: 'Sušička nesuší, nehřeje nebo hlásí zaplněnou nádržku? Závadu zjistíme a opravu provedeme přímo u vás doma.',
       intro:
         'Opravujeme sušičky prádla všech typů, kondenzační i s tepelným čerpadlem, přímo u zákazníka doma v Praze a okolí. Výjezd technika po Praze je zdarma a přesnou cenu opravy vám vždy sdělíme předem. S poruchami sušiček máme více než pět let zkušeností.',
-      body: 'Sušička prádla je pohodlný pomocník, zvlášť v bytě bez místa na sušák, a její porucha dokáže pořádně zkomplikovat domácnost. Naši technici přijedou přímo za vámi domů po celé Praze a závadu diagnostikují na místě. Diagnostika od 500 Kč je zdarma, pokud u nás objednáte opravu. U sušiček nejčastěji řešíme situace, kdy spotřebič nehřeje a prádlo zůstává vlhké, což u kondenzačních modelů bývá způsobeno vadným topným tělesem, zatímco u modelů s tepelným čerpadlem jde obvykle o poruchu kompresoru nebo únik chladiva. Velmi častou závadou je také ucpaný kondenzátor a zanesené filtry, kvůli kterým sušička hlásí, že je potřeba vyčistit výměník, nebo přestává sušit. Řešíme rovněž sušičky, které chybně hlásí plnou nádržku na vodu, přestože je prázdná, což způsobuje ucpané čerpadlo kondenzátu nebo vadný senzor hladiny. Setkáváme se i s netočícím se bubnem kvůli prasklému hnacímu řemenu, s hlučným chodem způsobeným opotřebenými ložisky nebo kladkami a s poruchami vlhkostních senzorů, které špatně vyhodnocují stav prádla. U elektroniky čteme chybové kódy na displeji a řešíme vadné řídicí jednotky. Při opravě používáme kvalitní náhradní díly, ať už jde o topná tělesa, čerpadla kondenzátu, řemeny, ložiska, senzory nebo elektronické moduly. Běžná oprava sušičky vyjde na 800 až 2000 Kč podle typu závady, přesnou částku vám ale řekneme předem. Nečekají vás žádné skryté poplatky a na provedenou práci i vyměněné díly poskytujeme záruku. Opravujeme sušičky značek Bosch, Siemens, Samsung, LG, Whirlpool, Electrolux, Beko, Miele, AEG, Candy, Gorenje a dalších. Termín si domluvíte telefonicky nebo přes WhatsApp na čísle +420 730 520 302, běžně přijedeme týž nebo následující den a servis zvládáme do 24 hodin.',
+      body: 'Sušička prádla je pohodlný pomocník, zvlášť v bytě bez místa na sušák, a její porucha dokáže pořádně zkomplikovat domácnost. Naši technici přijedou přímo za vámi domů po celé Praze a závadu diagnostikují na místě. Diagnostika od 500 Kč je zdarma, pokud u nás objednáte opravu. U sušiček nejčastěji řešíme situace, kdy spotřebič nehřeje a prádlo zůstává vlhké, což u kondenzačních modelů bývá způsobeno vadným topným tělesem, zatímco u modelů s tepelným čerpadlem jde obvykle o poruchu kompresoru nebo únik chladiva. Velmi častou závadou je také ucpaný kondenzátor a zanesené filtry, kvůli kterým sušička hlásí, že je potřeba vyčistit výměník, nebo přestává sušit. Řešíme rovněž sušičky, které chybně hlásí plnou nádržku na vodu, přestože je prázdná, což způsobuje ucpané čerpadlo kondenzátu nebo vadný senzor hladiny. Setkáváme se i s netočícím se bubnem kvůli prasklému hnacímu řemenu, s hlučným chodem způsobeným opotřebenými ložisky nebo kladkami a s poruchami vlhkostních senzorů, které špatně vyhodnocují stav prádla. U elektroniky čteme chybové kódy na displeji a řešíme vadné řídicí jednotky. Při opravě používáme kvalitní náhradní díly, ať už jde o topná tělesa, čerpadla kondenzátu, řemeny, ložiska, senzory nebo elektronické moduly. Běžná oprava sušičky vyjde na 800 až 2000 Kč podle typu závady, přesnou částku vám ale řekneme předem. Nečekají vás žádné skryté poplatky a na provedenou práci i vyměněné díly poskytujeme záruku. Opravujeme sušičky značek Bosch, Siemens, Samsung, LG, Whirlpool, Electrolux, Beko, Miele, AEG, Candy, Gorenje a dalších. Konkrétní dostupný termín si domluvíte telefonicky nebo přes WhatsApp na čísle +420 730 520 302.',
       commonFaults: [
         'Sušička nehřeje a prádlo zůstává vlhké (vadné topné těleso)',
         'Porucha tepelného čerpadla (kompresor, únik chladiva)',

@@ -1,4 +1,5 @@
 import React from 'react';
+import { trackedPhoneProps, trackedWhatsAppProps } from '../utils/analytics';
 
 export default function SiteFooter() {
   return (
@@ -14,11 +15,11 @@ export default function SiteFooter() {
           <h4 className="text-lg font-semibold mb-3">Informace</h4>
           <p className="text-sm">
             <strong>Telefon:</strong> <br />
-            <a href="tel:+420730520302" className="text-blue-400 hover:underline">
+            <a {...trackedPhoneProps('footer')} className="text-blue-400 hover:underline">
               +420 730 520 302
             </a>
             <br />
-            <span className="text-sm">(můžete psát i na <strong>WhatsApp</strong>)</span>
+            <span className="text-sm">nebo <a {...trackedWhatsAppProps('footer')} className="font-bold text-emerald-400 hover:underline">napište na WhatsApp</a></span>
           </p>
           <p className="mt-4 text-sm">
             <strong>E-mail:</strong> <br />

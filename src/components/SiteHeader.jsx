@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { FaBars, FaPhoneAlt, FaTimes } from 'react-icons/fa';
 import { Link, useLocation } from 'react-router-dom';
+import { trackedPhoneProps } from '../utils/analytics';
 
 export default function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -28,11 +29,11 @@ export default function SiteHeader() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-slate-200 bg-white/95 shadow-sm backdrop-blur">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between gap-3">
         <div className="flex items-center gap-2 min-w-0">
-          <img src="/logo.png" alt="Logo" className="h-8 w-8 shrink-0" />
-          <span className="font-bold text-base sm:text-lg truncate">Dokonalá Oprava</span>
+          <img src="/logo192.png" alt="" width="40" height="40" className="h-9 w-9 shrink-0 rounded-lg" />
+          <span className="truncate text-base font-black text-slate-950 sm:text-lg">Dokonalá Oprava</span>
         </div>
 
         <button
@@ -46,12 +47,15 @@ export default function SiteHeader() {
           {menuOpen ? <FaTimes /> : <FaBars />}
         </button>
 
-        <nav className="hidden lg:flex items-center gap-6 text-base font-medium text-gray-700">
+        <nav className="hidden items-center gap-5 text-sm font-bold text-slate-700 lg:flex">
           {navItems.map((item) => (
             <Link key={item.to} to={item.to} className="hover:text-blue-600 transition-colors">
               {item.label}
             </Link>
           ))}
+          <a {...trackedPhoneProps('header')} className="inline-flex items-center gap-2 rounded-xl bg-blue-700 px-4 py-2.5 text-white shadow-sm hover:bg-blue-800">
+            <FaPhoneAlt aria-hidden="true" /> 730 520 302
+          </a>
         </nav>
       </div>
 

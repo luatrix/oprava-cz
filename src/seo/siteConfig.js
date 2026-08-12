@@ -15,7 +15,7 @@ export const SITE = {
   geo: { lat: 50.0755, lng: 14.4378 },
   defaultTitle: 'Oprava praček, myček a sušiček v Praze | Dokonalá Oprava',
   defaultDescription:
-    'Rychlý a férový servis praček, myček a sušiček po celé Praze. Výjezd zdarma, oprava často ještě dnes. Zavolejte +420 730 520 302.',
+    'Oprava praček, myček a sušiček u vás doma v Praze. Výjezd zdarma, cena předem a záruka na práci. Zavolejte +420 730 520 302.',
 };
 
 export const businessJsonLd = () => ({

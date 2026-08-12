@@ -14,7 +14,14 @@ test('renders hero and contact text on homepage', () => {
 
   expect(
     screen.getByRole('heading', {
-      name: /Zavolejte nám nebo odešlete poptávku/i
+      name: /Domluvte si návštěvu technika/i
     })
   ).toBeInTheDocument();
+
+  expect(screen.getByRole('link', { name: /Zavolat \+420 730 520 302/i })).toHaveAttribute(
+    'href',
+    'tel:+420730520302'
+  );
+
+  expect(screen.getByRole('form', { name: /Poptávka opravy spotřebiče/i })).toBeInTheDocument();
 });
