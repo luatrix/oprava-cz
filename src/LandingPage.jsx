@@ -67,7 +67,7 @@ const process = [
 ];
 
 const proofPoints = [
-  'Více než 5 let zkušeností s opravami domácích spotřebičů',
+  'Více než 6 let zkušeností s opravami domácích spotřebičů',
   'Výjezd technika po celé Praze zdarma',
   'Diagnostika zdarma při provedené opravě',
   'Přesnou cenu odsouhlasíte před zahájením práce',
@@ -150,7 +150,7 @@ export default function LandingPage() {
                   <span className="text-xs font-medium text-slate-600 sm:text-sm">výjezd po Praze</span>
                 </div>
                 <div className="border-x border-slate-200 px-2 py-4 sm:px-4">
-                  <strong className="block text-xl text-blue-700 sm:text-2xl">5+ let</strong>
+                  <strong className="block text-xl text-blue-700 sm:text-2xl">6+ let</strong>
                   <span className="text-xs font-medium text-slate-600 sm:text-sm">zkušeností</span>
                 </div>
                 <div className="px-2 py-4 sm:px-4">
