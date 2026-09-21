@@ -6,6 +6,7 @@ The landing page pushes a `lead_action` object to `dataLayer` and emits a matchi
 
 | Event | Meaning | Useful dimensions |
 |---|---|---|
+| `order_click` | Visitor clicked “Objednat opravu” and scrolled to the form | `placement`, `page_path` |
 | `phone_click` | Visitor clicked a telephone link | `placement`, `page_path` |
 | `whatsapp_click` | Visitor opened the prefilled WhatsApp conversation | `placement`, `page_path` |
 | `form_submit_success` | Formspree accepted the lead | `appliance_type`, `placement`, `page_path` |
@@ -15,8 +16,8 @@ Placements distinguish the hero, header, process section, pre-FAQ CTA, contact p
 
 ## GA4 setup after deployment
 
-1. In GA4 Admin → Events, confirm the four events arrive in DebugView/Realtime.
-2. Mark `phone_click`, `whatsapp_click`, and `form_submit_success` as key events.
+1. In GA4 Admin → Events, confirm the five events arrive in DebugView/Realtime.
+2. Mark `order_click`, `phone_click`, `whatsapp_click`, and `form_submit_success` as key events.
 3. Do not count `form_submit_error` as a conversion; alert when it is greater than zero.
 4. Use `form_submit_success` as the strongest web lead. Treat phone and WhatsApp clicks as assisted leads until call/CRM outcomes are available.
 5. Import the three key events into Google Ads only if bidding should optimize for them. Avoid importing both a GA4 and duplicate Ads conversion for the same form submission.

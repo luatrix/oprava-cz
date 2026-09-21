@@ -33,3 +33,19 @@ export function trackedWhatsAppProps(placement) {
     onClick: () => trackConversion('whatsapp_click', { placement }),
   };
 }
+
+export function trackedOrderProps(placement) {
+  return {
+    href: '#contact',
+    onClick: (event) => {
+      trackConversion('order_click', { placement });
+
+      const contactSection = document.getElementById('contact');
+      if (!contactSection) return;
+
+      event.preventDefault();
+      contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      window.history.replaceState(null, '', '#contact');
+    },
+  };
+}

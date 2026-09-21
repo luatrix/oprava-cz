@@ -20,7 +20,7 @@ import FaqSection from './components/FaqSection';
 import Seo from './components/Seo';
 import { content } from './seo/content';
 import { businessJsonLd, faqJsonLd } from './seo/siteConfig';
-import { trackedPhoneProps, trackedWhatsAppProps } from './utils/analytics';
+import { trackedOrderProps, trackedPhoneProps, trackedWhatsAppProps } from './utils/analytics';
 
 const services = [
   {
@@ -111,16 +111,22 @@ export default function LandingPage() {
                 ))}
               </div>
 
-              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                <a
+                  {...trackedOrderProps('hero')}
+                  className="inline-flex min-h-14 items-center justify-center gap-2 rounded-xl bg-blue-700 px-5 py-4 text-base font-bold text-white shadow-lg shadow-blue-200 transition hover:bg-blue-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300"
+                >
+                  <FaClipboardCheck aria-hidden="true" /> Objednat opravu
+                </a>
                 <a
                   {...trackedPhoneProps('hero')}
-                  className="inline-flex min-h-14 items-center justify-center gap-3 rounded-xl bg-blue-700 px-7 py-4 text-lg font-bold text-white shadow-lg shadow-blue-200 transition hover:bg-blue-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300"
+                  className="inline-flex min-h-14 items-center justify-center gap-2 rounded-xl border border-blue-200 bg-white px-5 py-4 text-base font-bold text-blue-800 shadow-sm transition hover:bg-blue-50 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300"
                 >
-                  <FaPhoneAlt aria-hidden="true" /> Zavolat +420 730 520 302
+                  <FaPhoneAlt aria-hidden="true" /> Zavolat
                 </a>
                 <a
                   {...trackedWhatsAppProps('hero')}
-                  className="inline-flex min-h-14 items-center justify-center gap-3 rounded-xl border border-emerald-200 bg-white px-7 py-4 text-lg font-bold text-emerald-700 shadow-sm transition hover:bg-emerald-50 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-300"
+                  className="inline-flex min-h-14 items-center justify-center gap-2 rounded-xl border border-emerald-200 bg-white px-5 py-4 text-base font-bold text-emerald-700 shadow-sm transition hover:bg-emerald-50 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-300"
                 >
                   <FaWhatsapp className="text-2xl text-emerald-600" aria-hidden="true" /> Napsat na WhatsApp
                 </a>
